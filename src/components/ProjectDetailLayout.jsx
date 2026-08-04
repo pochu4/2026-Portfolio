@@ -75,6 +75,12 @@ export default function ProjectDetailLayout({ project }) {
             playsInline
             className="mt-10 aspect-[16/9] w-full rounded-sm object-cover"
           />
+        ) : project.heroImage ? (
+          <img
+            src={project.heroImage}
+            alt={project.title}
+            className="mt-10 aspect-[16/9] w-full rounded-sm object-cover"
+          />
         ) : (
           <Placeholder ratio="aspect-[16/9]" className="mt-10" />
         )}
@@ -109,17 +115,28 @@ export default function ProjectDetailLayout({ project }) {
               <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] tracking-tight">
                 {section.heading}
               </h2>
-              <div className="mt-5 max-w-2xl space-y-5 leading-relaxed">
-                {section.body.map((paragraph, i) => (
-                  <p key={i}>{paragraph}</p>
-                ))}
-              </div>
-              {section.images > 0 && (
-                <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  {Array.from({ length: section.images }).map((_, i) => (
-                    <Placeholder key={i} ratio="aspect-video" />
+
+              {section.blocks ? (
+                <div className="mt-8 space-y-10">
+                  {section.blocks.map((block, i) => (
+                    <SectionBlock key={i} block={block} />
                   ))}
                 </div>
+              ) : (
+                <>
+                  <div className="mt-5 max-w-2xl space-y-5 leading-relaxed">
+                    {section.body.map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
+                  {section.images > 0 && (
+                    <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      {Array.from({ length: section.images }).map((_, i) => (
+                        <Placeholder key={i} ratio="aspect-video" />
+                      ))}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           ))}
@@ -151,5 +168,99 @@ export default function ProjectDetailLayout({ project }) {
         </div>
       </section>
     </>
+  )
+}
+
+// Renders one entry of a section's `blocks` array. Every block stacks
+// top-to-bottom — text and images never share a row. Three shapes:
+// text (a subheading + paragraphs), images (a full-width 2-up grid, or a
+// single contained image when there's only one — see SectionImage), and
+// imageText (a subheading + paragraphs with one supporting image directly
+// below or above it, used for callouts like Persona/Matrix).
+function SectionBlock({ block }) {
+  if (block.type === 'images') {
+    return <SectionImages items={block.items} />
+  }
+
+  if (block.type === 'imageText') {
+    return (
+      <div className="space-y-6">
+        {block.reverse ? (
+          <>
+            <SectionImage img={block.image} />
+            <SectionText block={block} />
+          </>
+        ) : (
+          <>
+            <SectionText block={block} />
+            <SectionImage img={block.image} />
+          </>
+        )}
+      </div>
+    )
+  }
+
+  return <SectionText block={block} />
+}
+
+// A single supporting image is deliberately contained rather than
+// stretched edge-to-edge — at full column width a lone screenshot reads
+// as oversized and unbalanced next to the text column beside it. Paired
+// images keep the full-width grid since two half-width images together
+// already read as an intentional gallery.
+function SectionImage({ img }) {
+  return (
+    <img
+      src={img.src}
+      alt={img.alt}
+      loading="lazy"
+      className={`w-full max-w-2xl rounded-sm object-cover ${img.ratio ?? 'aspect-video'}`}
+    />
+  )
+}
+
+function SectionImages({ items }) {
+  if (items.length === 1) {
+    return <SectionImage img={items[0]} />
+  }
+
+  return (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {items.map((img, i) => (
+        <img
+          key={i}
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+          className={`w-full rounded-sm object-cover ${img.ratio ?? 'aspect-video'}`}
+        />
+      ))}
+    </div>
+  )
+}
+
+function SectionText({ block }) {
+  return (
+    <div className="max-w-2xl space-y-4 leading-relaxed">
+      {block.heading && (
+        <h3 className="text-lg font-medium tracking-tight md:text-xl">
+          {block.heading}
+        </h3>
+      )}
+      <div className="space-y-4">
+        {block.body.map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
+      {block.list && (
+        <ul className="space-y-1">
+          {block.list.map((item, i) => (
+            <li key={i} className="font-medium">
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   )
 }

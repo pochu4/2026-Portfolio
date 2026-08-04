@@ -1,8 +1,8 @@
 import ProjectDetailLayout from '../../components/ProjectDetailLayout'
 import { getProject } from '../../data/projects'
 
-const project = getProject('project-three')
+const project = getProject('conscious-connections')
 
-export default function ProjectThree() {
+export default function ConsciousConnections() {
   return <ProjectDetailLayout project={project} />
 }

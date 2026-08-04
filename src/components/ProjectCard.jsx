@@ -13,6 +13,12 @@ export default function ProjectCard({ project }) {
           playsInline
           className="aspect-video w-full rounded-sm object-cover transition-opacity group-hover:opacity-80"
         />
+      ) : project.heroImage ? (
+        <img
+          src={project.heroImage}
+          alt={project.title}
+          className="aspect-video w-full rounded-sm object-cover transition-opacity group-hover:opacity-80"
+        />
       ) : (
         <Placeholder
           ratio="aspect-video"

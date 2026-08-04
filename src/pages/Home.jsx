@@ -184,23 +184,52 @@ export default function Home() {
               {testimonials.map((t, i) => {
                 const [role, company] = splitTitle(t.title)
                 return (
-                  <button
+                  <div
                     key={i}
-                    type="button"
+                    role="button"
+                    tabIndex={0}
                     onClick={() => selectTestimonial(i)}
-                    className={`flex min-w-0 items-start gap-3 pb-4 text-left transition-opacity ${
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        selectTestimonial(i)
+                      }
+                    }}
+                    className={`flex min-w-0 cursor-pointer items-start gap-3 pb-4 text-left transition-opacity ${
                       i === activeIndex
                         ? 'opacity-100'
                         : 'opacity-40 hover:opacity-70'
                     }`}
                   >
-                    <span className="bg-placeholder h-9 w-9 shrink-0 rounded-full" />
+                    {t.image ? (
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="h-9 w-9 shrink-0 rounded-full object-cover"
+                      />
+                    ) : (
+                      <span className="bg-placeholder h-9 w-9 shrink-0 rounded-full" />
+                    )}
                     <span className="min-w-0 text-xs leading-tight">
-                      <span className="block font-medium">{t.name}</span>
+                      <span className="block font-medium">
+                        {t.linkedin ? (
+                          <a
+                            href={t.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="underline-offset-2 hover:underline"
+                          >
+                            {t.name}
+                          </a>
+                        ) : (
+                          t.name
+                        )}
+                      </span>
                       <span className="text-muted block">{role}</span>
                       <span className="text-muted block">{company}</span>
                     </span>
-                  </button>
+                  </div>
                 )
               })}
             </div>
