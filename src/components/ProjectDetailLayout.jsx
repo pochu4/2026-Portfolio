@@ -60,13 +60,24 @@ export default function ProjectDetailLayout({ project }) {
               <dd className="mt-1">{project.team}</dd>
             </div>
           )}
-          <div className="sm:text-right">
+          <div>
             <dt className="text-muted">(year)</dt>
             <dd className="mt-1">{project.year}</dd>
           </div>
         </dl>
 
-        <Placeholder ratio="aspect-[16/9]" className="mt-10" />
+        {project.heroVideo ? (
+          <video
+            src={project.heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="mt-10 aspect-[16/9] w-full rounded-sm object-cover"
+          />
+        ) : (
+          <Placeholder ratio="aspect-[16/9]" className="mt-10" />
+        )}
       </section>
 
       <section className="shell mt-24 grid gap-12 lg:grid-cols-[180px_1fr]">
@@ -106,7 +117,7 @@ export default function ProjectDetailLayout({ project }) {
               {section.images > 0 && (
                 <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {Array.from({ length: section.images }).map((_, i) => (
-                    <Placeholder key={i} ratio="aspect-[4/3]" />
+                    <Placeholder key={i} ratio="aspect-video" />
                   ))}
                 </div>
               )}

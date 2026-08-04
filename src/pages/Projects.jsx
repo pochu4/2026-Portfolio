@@ -12,7 +12,7 @@ export default function Projects() {
 
   return (
     <section className="shell pt-16 md:pt-24">
-      <h1 className="text-[clamp(2.75rem,8vw,7rem)] leading-none tracking-tight">
+      <h1 className="text-[clamp(2.5rem,7vw,6rem)] leading-none tracking-tight">
         Projects
         <sup className="text-accent ml-2 align-top top-0 text-[0.3em]">
           ({projects.length})

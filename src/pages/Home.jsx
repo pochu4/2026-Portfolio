@@ -81,15 +81,17 @@ export default function Home() {
       >
         <RevealItem
           as="h1"
-          className="max-w-6xl text-[clamp(2rem,5.5vw,4.75rem)] leading-[1.08] tracking-tight"
+          className="max-w-6xl text-[clamp(2rem,5.5vw,4.25rem)] leading-[1.08] tracking-tight min-[1920px]:text-[5rem] min-[2560px]:text-[6rem]"
         >
           Hello, I&apos;m Johann, a{' '}
-          <span className="text-accent">Marketing &amp; Brand Designer</span>{' '}
-          with a background in UX, and Web Development.
+          <span className="text-accent xl:whitespace-nowrap">
+            Marketing &amp; Brand Designer
+          </span>{' '}
+          with a background in UX, and Web&nbsp;Development.
         </RevealItem>
 
         <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
-          <RevealItem className="max-w-sm">
+          <RevealItem className="max-w-sm min-[1920px]:max-w-md">
             <p className="text-muted flex items-center gap-3 text-sm">
               {site.location}
               <LocalTime />
@@ -104,7 +106,7 @@ export default function Home() {
           <RevealItem>
             <Placeholder
               ratio="aspect-[16/9]"
-              className="w-full md:w-72 lg:w-80"
+              className="w-full md:w-72 lg:w-80 min-[1920px]:w-[26rem] min-[2560px]:w-[32rem]"
             />
           </RevealItem>
         </div>

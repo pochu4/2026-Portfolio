@@ -80,7 +80,7 @@
 @layer components {
   /* Shared page gutter — keeps every section on the same vertical rails. */
   .shell {
-    @apply mx-auto w-full max-w-[1920px] px-6 md:px-10 lg:px-14 2xl:px-20;
+    @apply mx-auto w-full max-w-[1680px] px-6 md:px-10 lg:px-14 2xl:px-20;
   }
 
   .eyebrow {

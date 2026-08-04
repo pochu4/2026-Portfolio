@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       <section className="shell pt-16 md:pt-24">
-        <h1 className="text-[clamp(2.75rem,9vw,8rem)] leading-none tracking-tight">
+        <h1 className="text-[clamp(2.5rem,7.5vw,6.5rem)] leading-none tracking-tight">
           About me
         </h1>
 
