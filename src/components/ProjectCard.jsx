@@ -3,7 +3,10 @@ import Placeholder from './Placeholder'
 
 export default function ProjectCard({ project }) {
   return (
-    <Link to={`/projects/${project.slug}`} className="group block">
+    <Link
+      to={`/projects/${project.slug}`}
+      className="group ease-out block transition-transform duration-150 active:scale-[0.98]"
+    >
       {project.heroVideo ? (
         <video
           src={project.heroVideo}

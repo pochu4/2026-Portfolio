@@ -17,39 +17,92 @@ export const projects = [
       {
         id: 'overview',
         heading: 'Overview',
-        body: [
-          'Lifeguard Digital Health began in 2017 with a single, urgent focus: using technology to intervene in preventable loss during the opioid crisis. In the years since, our work has grown well beyond that starting point, from crisis response into broader public health and safety, connected care, and the many communities who now rely on us. This refresh exists because our identity needed to grow with it.',
-          'This is not a reinvention. The foundation that has always defined us, a commitment to saving lives, an empathy shaped by real loss, and a belief that technology built with humanity can change outcomes, remains unchanged. What this refresh does is give that foundation a clearer, more cohesive form.',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Introduction',
+            body: [
+              'Lifeguard Digital Health began in 2017 with a single, urgent focus: using technology to intervene in preventable loss during the opioid crisis. In the years since, our work has grown well beyond that starting point, from crisis response into broader public health and safety, connected care, and the many communities who now rely on us. This refresh exists because our identity needed to grow with it.',
+              'This is not a reinvention. The foundation that has always defined us, a commitment to saving lives, an empathy shaped by real loss, and a belief that technology built with humanity can change outcomes, remains unchanged. What this refresh does is give that foundation a clearer, more cohesive form.',
+            ],
+          },
+          { type: 'images', count: 4 },
         ],
-        images: 4,
       },
       {
         id: 'challenge',
         heading: 'Challenge',
-        body: [
-          'Placeholder copy. Describe the core problem, the constraints, and what made this hard.',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'The Problem',
+            body: [
+              'Placeholder copy. Describe the core problem the client was facing before this project began.',
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Constraints',
+            body: [
+              'Placeholder copy. Describe the constraints, timeline, budget, technical, or brand, that shaped the work and made it hard.',
+            ],
+          },
+          { type: 'images', count: 4 },
         ],
-        images: 4,
       },
       {
         id: 'approach',
         heading: 'Approach',
-        body: ['Placeholder copy. Describe your process and key decisions.'],
-        images: 2,
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Process',
+            body: [
+              'Placeholder copy. Walk through the research, strategy, or discovery work that shaped the direction.',
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Key Decisions',
+            body: [
+              'Placeholder copy. Call out the pivotal decisions along the way and why they were made.',
+            ],
+          },
+          { type: 'images', count: 2 },
+        ],
       },
       {
         id: 'design',
         heading: 'Design',
-        body: ['Placeholder copy. Show the outcome and the system behind it.'],
-        images: 4,
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Visual Identity',
+            body: [
+              'Placeholder copy. Describe the identity system, color, type, imagery, and the reasoning behind it.',
+            ],
+          },
+          { type: 'images', count: 4 },
+          {
+            type: 'text',
+            heading: 'Applications',
+            body: [
+              'Placeholder copy. Show where and how the system was applied across touchpoints.',
+            ],
+          },
+        ],
       },
       {
         id: 'reflection',
         heading: 'Reflection',
-        body: [
-          'Placeholder copy. What you learned and what you would revisit.',
+        blocks: [
+          {
+            type: 'text',
+            body: [
+              'Placeholder copy. What you learned and what you would revisit.',
+            ],
+          },
         ],
-        images: 0,
       },
     ],
   },
@@ -63,7 +116,7 @@ export const projects = [
     scope: 'Product Design',
     software: 'Figma, Photoshop',
     summary: 'Placeholder summary for the second project.',
-    sections: [],
+    sections: placeholderSections(),
   },
   {
     slug: 'conscious-connections',
@@ -72,7 +125,7 @@ export const projects = [
     year: '2025',
     featured: false,
     categories: ['UX/UI Design'],
-    scope: 'UX Strategy, UI Design, Software',
+    scope: 'UX Strategy, UI Design',
     software: 'Figma, Adobe CC',
     team: 'Angus Fong, Sam Park, Fenil Padhiar',
     summary:
@@ -103,26 +156,16 @@ export const projects = [
               },
             ],
           },
-        ],
-      },
-      {
-        id: 'challenge',
-        heading: 'Challenge',
-        blocks: [
           {
             type: 'text',
+            heading: 'Challenge',
             body: [
               'Conscious Connections is a platform designed for intentional, values-driven relationships. While it may seem like just another dating platform, Conscious Connections aims to prioritize compatibility, depth, and emotional intelligence. Our goal is to make the brand visually magnetic, seamlessly functional, and deeply resonant with their audience.',
             ],
           },
-        ],
-      },
-      {
-        id: 'solution',
-        heading: 'Solution',
-        blocks: [
           {
             type: 'text',
+            heading: 'Solution',
             body: [
               'To help bring the vision to life, we designed an experience through our web-based application that has a clear focus on creating meaningful connections through UI that feels both inviting and intentional.',
             ],
@@ -165,27 +208,31 @@ export const projects = [
             ],
           },
           {
-            type: 'imageText',
-            image: {
-              src: '/images/projects/conscious-connections/persona.png',
-              alt: 'Conscious Connections user personas',
-            },
+            type: 'text',
             heading: 'Persona',
             body: [
               'To get a better feel for who our users are, we created 2 personas that represent different needs, motivations, and goals. This approach helped us get a better feel for the different perspectives of our users, helping us identify their pain-points and designing an experience that was intentional and resonates with our users.',
             ],
           },
           {
-            type: 'imageText',
-            image: {
-              src: '/images/projects/conscious-connections/matrix.png',
-              alt: 'Conscious Connections design matrix Venn diagram',
-            },
+            type: 'text',
             heading: 'Design Matrix',
             body: [
               'We created a 3-way Venn diagram that maps out our Client Goals, User Goals, and Design Goals, to understand the balance between the business objectives, user needs, and design principles. By visualizing the intersections between, we were able to make strategic, user-centered decisions to bring the vision behind Conscious Connections to life.',
             ],
-            reverse: true,
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/conscious-connections/persona.png',
+                alt: 'Conscious Connections user personas',
+              },
+              {
+                src: '/images/projects/conscious-connections/matrix.png',
+                alt: 'Conscious Connections design matrix Venn diagram',
+              },
+            ],
           },
           {
             type: 'images',
@@ -214,12 +261,7 @@ export const projects = [
             ],
           },
           {
-            type: 'imageText',
-            image: {
-              src: '/images/projects/conscious-connections/sketch.png',
-              alt: 'Conscious Connections hand sketch explorations',
-              ratio: 'aspect-[4/3]',
-            },
+            type: 'text',
             heading: 'Hand Sketches',
             body: [
               'With such a short time-frame for our project, my team and I used the Crazy 8s Exercise as a brainstorming technique. Creating 8 different sketches in 8 minutes, allowed us to get our ideas down quickly and explore different possibilities when creating our solution. After the exercise, we regrouped, discussed each of our ideas, and took notes to combine the strongest elements we found and refine our approach.',
@@ -228,6 +270,10 @@ export const projects = [
           {
             type: 'images',
             items: [
+              {
+                src: '/images/projects/conscious-connections/sketch.png',
+                alt: 'Conscious Connections hand sketch explorations',
+              },
               {
                 src: '/images/projects/conscious-connections/lowfi-wireframe.png',
                 alt: 'Conscious Connections low-fidelity wireframes',
@@ -325,8 +371,108 @@ export const projects = [
     scope: 'Branding',
     software: 'Illustrator, Photoshop, Figma',
     summary: 'Placeholder summary for the fourth project.',
-    sections: [],
+    sections: placeholderSections(),
   },
 ]
+
+// Generic case-study scaffolding for projects whose real content isn't
+// written yet, so every project page renders the same section rhythm
+// (and every subsection has a placeholder heading) rather than an empty
+// page. Called per-project so each gets its own array instances.
+function placeholderSections() {
+  return [
+    {
+      id: 'overview',
+      heading: 'Overview',
+      blocks: [
+        {
+          type: 'text',
+          heading: 'Introduction',
+          body: [
+            'Placeholder copy. Introduce the project, the client or context, and what this case study will cover.',
+          ],
+        },
+        { type: 'images', count: 2 },
+        {
+          type: 'text',
+          heading: 'Challenge',
+          body: [
+            'Placeholder copy. Describe the core problem, the constraints, and what made this hard.',
+          ],
+        },
+        {
+          type: 'text',
+          heading: 'Solution',
+          body: ['Placeholder copy. Summarize the direction taken to solve it.'],
+        },
+        { type: 'images', count: 2 },
+      ],
+    },
+    {
+      id: 'research',
+      heading: 'Research',
+      blocks: [
+        {
+          type: 'text',
+          heading: 'Problem Statement',
+          body: ["Placeholder copy. Frame the problem from the user's perspective."],
+        },
+        {
+          type: 'text',
+          heading: 'User Research',
+          body: [
+            'Placeholder copy. Describe interviews, surveys, or other research methods used.',
+          ],
+        },
+        { type: 'images', count: 2 },
+      ],
+    },
+    {
+      id: 'ideation',
+      heading: 'Ideation',
+      blocks: [
+        {
+          type: 'text',
+          heading: 'Exploration',
+          body: [
+            'Placeholder copy. Describe early sketches, wireframes, or concept directions explored.',
+          ],
+        },
+        { type: 'images', count: 2 },
+        {
+          type: 'text',
+          heading: 'Feedback',
+          body: ['Placeholder copy. Describe how feedback shaped the direction.'],
+        },
+      ],
+    },
+    {
+      id: 'design',
+      heading: 'Design',
+      blocks: [
+        {
+          type: 'text',
+          heading: 'Visual Design',
+          body: [
+            'Placeholder copy. Describe the final visual system and key design decisions.',
+          ],
+        },
+        { type: 'images', count: 4 },
+      ],
+    },
+    {
+      id: 'reflection',
+      heading: 'Reflection',
+      blocks: [
+        {
+          type: 'text',
+          body: [
+            'Placeholder copy. What you learned and what you would revisit.',
+          ],
+        },
+      ],
+    },
+  ]
+}
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)

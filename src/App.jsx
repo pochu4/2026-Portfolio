@@ -2,6 +2,7 @@ import { Route } from 'react-router-dom'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import PageTransition from './components/PageTransition'
+import SmoothScroll from './components/SmoothScroll'
 import About from './pages/About'
 import Home from './pages/Home'
 import ConsciousConnections from './pages/projects/ConsciousConnections'
@@ -13,6 +14,7 @@ import Projects from './pages/Projects'
 export default function App() {
   return (
     <>
+      <SmoothScroll />
       <Header />
       <main>
         <PageTransition>

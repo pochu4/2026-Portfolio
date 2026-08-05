@@ -1,35 +1,69 @@
-import Placeholder from '../components/Placeholder'
+import Parallax from '../components/Parallax'
+import { RevealGroup, RevealItem } from '../components/Reveal'
 import { skills, tools } from '../data/site'
 
 export default function About() {
   return (
     <>
-      <section className="shell pt-16 md:pt-24">
-        <h1 className="text-[clamp(2.5rem,7.5vw,6.5rem)] leading-none tracking-tight">
+      <RevealGroup as="section" trigger="mount" className="shell pt-16 md:pt-24">
+        <RevealItem
+          as="h1"
+          className="text-[clamp(2.5rem,7.5vw,6.5rem)] leading-none tracking-tight"
+        >
           About me
-        </h1>
+        </RevealItem>
 
-        <div className="mt-16 grid gap-10 md:grid-cols-[1fr_2.5fr] md:items-start">
-          <Placeholder
-            ratio="aspect-square"
-            className="w-40 md:w-full md:max-w-48"
-          />
-          <div>
+        <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_2.5fr] md:items-start">
+          <RevealItem>
+            <Parallax
+              range={16}
+              scale={1.24}
+              className="aspect-square w-40 rounded-sm md:w-full md:max-w-48"
+            >
+              <img
+                src="/images/about/portrait.jpg"
+                alt="Johann Chua"
+                className="h-full w-full object-cover"
+              />
+            </Parallax>
+          </RevealItem>
+          <RevealItem>
             <p className="eyebrow">(Introduction)</p>
             <p className="mt-3 text-[clamp(1.25rem,2.4vw,2.25rem)] leading-snug tracking-tight">
-              Hello again, I&apos;m Johann, a Marketing &amp; Brand Designer
-              based in Vancouver, working across brand identity, digital
-              marketing, and web design, with a background in UX/UI and
-              front-end development.
+              Hello again — I&apos;m Johann, a Marketing &amp; Digital
+              Designer based in Vancouver. I think like a marketer
+              first — brand, positioning, the story a company needs to
+              tell — then I design and build the product experience that
+              tells it.
             </p>
-          </div>
+          </RevealItem>
         </div>
-      </section>
 
-      <section className="shell mt-24 grid gap-10 md:grid-cols-2 md:items-start">
-        <div>
-          <p className="eyebrow">(First Experiences)</p>
-          <div className="mt-3 space-y-6 leading-relaxed">
+        <div className="mt-16 grid grid-cols-1 gap-4 md:mt-24 sm:grid-cols-2">
+          <RevealItem>
+            <Parallax range={32} scale={1.3} className="aspect-[4/3] w-full rounded-sm">
+              <img
+                src="/images/about/bridge.jpg"
+                alt="Lions Gate Bridge at dusk"
+                className="h-full w-full object-cover"
+              />
+            </Parallax>
+          </RevealItem>
+          <RevealItem>
+            <Parallax range={32} scale={1.3} className="aspect-[4/3] w-full rounded-sm">
+              <img
+                src="/images/about/taking-picture.jpg"
+                alt="Johann taking a photo with a camera"
+                className="h-full w-full object-cover"
+              />
+            </Parallax>
+          </RevealItem>
+        </div>
+      </RevealGroup>
+
+      <section className="shell mt-28 md:mt-40">
+        <RevealGroup>
+          <SectionRow label="First Experiences">
             <p>
               I didn&apos;t start in design. I started in Marketing
               Management, focused on communications. That&apos;s where I
@@ -44,67 +78,125 @@ export default function About() {
               BCIT, where I paired that marketing foundation with UX
               strategy, UI design, and front-end code. From there I landed a
               design and web development internship at Convergence/Pixel
-              Ramen, working on branding, visual content, web builds, QA, and
-              front-end. It was my first real taste of shipping work for
+              Ramen, working on branding, visual content, web builds, QA,
+              and front-end. It was my first real taste of shipping work for
               actual clients instead of a classroom brief.
             </p>
-          </div>
-        </div>
-        <Placeholder ratio="aspect-[4/3]" />
+          </SectionRow>
+        </RevealGroup>
       </section>
 
-      <section className="shell mt-24 grid gap-10 md:grid-cols-2 md:items-start">
-        <Placeholder ratio="aspect-[4/3]" />
-        <div>
-          <p className="eyebrow">(Today)</p>
-          <p className="mt-3 leading-relaxed">
-            Right now I&apos;m focused on brand identity and digital
-            marketing work that doesn&apos;t separate strategy from craft,
-            and web/product design that survives contact with real
-            production. I&apos;m increasingly drawn to print and
-            typography-led work as a growth area, and I&apos;m looking for
-            projects where design, marketing, and front-end aren&apos;t three
-            separate handoffs.
-          </p>
-        </div>
+      <section className="shell mt-28 md:mt-40">
+        <RevealGroup>
+          <SectionRow label="Today">
+            <p>
+              Right now I&apos;m focused on brand and marketing work —
+              identity systems, campaigns, the story behind how a company
+              shows up — and I take it further than a typical marketing
+              role by designing and building the product experience myself.
+              I&apos;m increasingly drawn to print and typography-led work
+              as a growth area, and I&apos;m looking for roles where
+              marketing and design aren&apos;t split across two different
+              hires.
+            </p>
+          </SectionRow>
+        </RevealGroup>
       </section>
 
-      <section className="shell mt-28 grid gap-12 md:grid-cols-2">
+      <RevealGroup
+        as="section"
+        className="shell mt-28 grid gap-12 md:mt-40 md:grid-cols-2"
+      >
         <TagGroup title="Skills" items={skills} />
         <TagGroup title="Tools" items={tools} />
-      </section>
+      </RevealGroup>
 
-      <section className="shell mt-28 grid gap-10 md:grid-cols-2 md:items-start">
-        <div>
-          <p className="eyebrow">(Beyond the Screen)</p>
-          <div className="mt-3 space-y-6 leading-relaxed">
+      <section className="shell mt-28 md:mt-40">
+        <RevealGroup>
+          <SectionRow label="Beyond the Screen">
             <p>
-              Outside of work, I love staying active and finding a balance away
-              from the digital world. These days I like going to the gym,
-              playing golf, fishing, or trying new hobbies.
+              Outside of work, I love staying active and finding a balance
+              away from the digital world. These days I like going to the
+              gym, playing golf, fishing, or trying new hobbies.
             </p>
             <p>I&apos;ve also enjoyed photography and fashion.</p>
             <p>
               Music also plays a big role in my life. I listen to music
               during almost every activity, while working, travelling,
-              playing sports, or just going through an ordinary day. It helps
-              me focus, reset my mind, or create the right mood for whatever
-              I am doing.
+              playing sports, or just going through an ordinary day. It
+              helps me focus, reset my mind, or create the right mood for
+              whatever I am doing.
             </p>
+          </SectionRow>
+
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <RevealItem>
+              <Parallax range={24} scale={1.28} className="aspect-[3/4] w-full rounded-sm">
+                <img
+                  src="/images/about/skyline.jpg"
+                  alt="Hong Kong skyline at dusk"
+                  className="h-full w-full object-cover"
+                />
+              </Parallax>
+            </RevealItem>
+            <RevealItem>
+              <Parallax range={24} scale={1.28} className="aspect-[3/4] w-full rounded-sm">
+                <video
+                  src="/videos/beyond-the-screen.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
+              </Parallax>
+            </RevealItem>
+            <RevealItem>
+              <Parallax range={24} scale={1.28} className="aspect-[3/4] w-full rounded-sm">
+                <img
+                  src="/images/about/lighthouse.jpg"
+                  alt="Prospect Point lighthouse and seawall"
+                  className="h-full w-full object-cover"
+                />
+              </Parallax>
+            </RevealItem>
+            <RevealItem>
+              <Parallax range={24} scale={1.28} className="aspect-[3/4] w-full rounded-sm">
+                <img
+                  src="/images/about/fishing.jpg"
+                  alt="Johann tying a fishing line by the water"
+                  className="h-full w-full object-cover"
+                />
+              </Parallax>
+            </RevealItem>
           </div>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <Placeholder ratio="aspect-[3/4]" />
-          <Placeholder ratio="aspect-[3/4]" />
-        </div>
+        </RevealGroup>
       </section>
     </>
   )
 }
 
+// A 4-column row: the label sits in column 1, the body copy fills columns
+// 2-4, both on the same row.
+function SectionRow({ label, children }) {
+  return (
+    <div className="grid gap-y-4 sm:grid-cols-4 sm:gap-x-6">
+      <RevealItem
+        as="h2"
+        className="text-muted text-2xl tracking-tight sm:col-span-1 md:text-3xl"
+      >
+        {label}
+      </RevealItem>
+      <RevealItem className="space-y-6 leading-relaxed sm:col-span-3">
+        {children}
+      </RevealItem>
+    </div>
+  )
+}
+
 function TagGroup({ title, items }) {
   return (
-    <div>
+    <RevealItem>
       <h2 className="text-[clamp(1.75rem,3.5vw,3.25rem)] tracking-tight">
         {title}
         <sup className="text-accent ml-1 align-top top-0 text-base">({items.length})</sup>
@@ -116,6 +208,6 @@ function TagGroup({ title, items }) {
           </li>
         ))}
       </ul>
-    </div>
+    </RevealItem>
   )
 }

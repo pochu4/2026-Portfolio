@@ -1,6 +1,6 @@
 # Johann Chua — Portfolio
 
-Personal portfolio site for Johann Chua, a Marketing & Brand Designer. Built with React, React Router, Tailwind CSS, and Framer Motion.
+Personal portfolio site for Johann Chua, a Marketing & Digital Designer. Built with React, React Router, Tailwind CSS, and Framer Motion.
 
 ## Stack
 

@@ -52,6 +52,11 @@
   --color-line: #e4e4e4;
   --color-placeholder: #d9d9d9;
   --color-accent: #0b5cff;
+
+  /* Strong custom curves — built-in CSS easings are too weak for deliberate
+     motion. Keep in sync with src/lib/motion.js for Framer Motion tweens. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @keyframes testimonial-progress {
@@ -64,10 +69,6 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply text-ink bg-white font-sans antialiased;
   }
@@ -88,6 +89,6 @@
   }
 
   .pill {
-    @apply border-line hover:border-ink inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm whitespace-nowrap transition-colors;
+    @apply border-line hover:border-ink ease-out inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm whitespace-nowrap transition-[color,border-color,transform] duration-150 active:scale-[0.97];
   }
 }

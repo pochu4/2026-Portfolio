@@ -7,7 +7,7 @@ export default function Footer() {
       <p className="eyebrow">(Let&apos;s Work Together)</p>
       <a
         href={`mailto:${site.email}`}
-        className="mt-2 block text-[clamp(1.75rem,7vw,5.5rem)] leading-none tracking-tight break-all"
+        className="mt-2 block text-[clamp(1.75rem,7vw,5.5rem)] leading-none tracking-tight break-all lg:tracking-[-0.035em]"
       >
         {site.email}
       </a>

@@ -46,8 +46,12 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 transition-[background-color,backdrop-filter] duration-300 ${
-          scrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-white/0'
+        className={`sticky top-0 z-50 border-b transition-[background-color,backdrop-filter,border-color] duration-300 ${
+          open
+            ? 'border-transparent bg-white'
+            : scrolled
+              ? 'border-line bg-white/80 backdrop-blur-md'
+              : 'border-transparent bg-white/0'
         }`}
       >
         <div className="shell flex items-center justify-between py-5">
@@ -82,7 +86,7 @@ export default function Header() {
             </a>
             <a
               href={`mailto:${site.email}`}
-              className="bg-ink rounded-full px-5 py-2.5 text-white transition-opacity hover:opacity-85"
+              className="bg-ink ease-out rounded-full px-5 py-2.5 text-white transition-[opacity,transform] duration-150 hover:opacity-85 active:scale-[0.97]"
             >
               Get in Touch
             </a>
@@ -93,7 +97,7 @@ export default function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
-            className="relative z-50 flex h-6 w-7 flex-col justify-center gap-1.5 md:hidden"
+            className="ease-out relative z-50 flex h-6 w-7 flex-col justify-center gap-1.5 transition-transform duration-150 active:scale-90 md:hidden"
           >
             <span
               className={`bg-ink block h-px w-full transition-transform duration-300 ${

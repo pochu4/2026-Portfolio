@@ -1,5 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { EASE_OUT } from '../lib/motion'
 import { site } from '../data/site'
 
 const links = [
@@ -10,6 +11,8 @@ const links = [
 ]
 
 export default function MobileNav({ open, onClose }) {
+  const reduce = useReducedMotion()
+
   return (
     <AnimatePresence>
       {open && (
@@ -17,7 +20,7 @@ export default function MobileNav({ open, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.25, ease: EASE_OUT }}
           className="fixed inset-0 z-40 bg-white/80 backdrop-blur-md md:hidden"
         >
           <div className="shell flex h-full flex-col pt-24 pb-10">
@@ -29,14 +32,24 @@ export default function MobileNav({ open, onClose }) {
               {links.map((link, i) => (
                 <motion.div
                   key={link.label}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 + i * 0.05, duration: 0.3 }}
+                  initial={
+                    reduce
+                      ? { opacity: 0 }
+                      : { opacity: 0, transform: 'translateY(12px)' }
+                  }
+                  animate={{ opacity: 1, transform: 'translateY(0px)' }}
+                  transition={{
+                    delay: reduce ? 0 : 0.08 + i * 0.05,
+                    duration: reduce ? 0.15 : 0.3,
+                    ease: EASE_OUT,
+                  }}
                 >
                   {link.external ? (
                     <a
                       href={link.to}
                       onClick={onClose}
+                      target="_blank"
+                      rel="noreferrer"
                       className="block py-1 text-5xl tracking-tight"
                     >
                       {link.label}

@@ -1,9 +1,9 @@
 export const site = {
   name: 'Johann Chua',
-  role: 'Marketing & Brand Designer',
+  role: 'Marketing & Digital Designer',
   location: 'Vancouver',
   email: 'chua.johann01@gmail.com',
-  currently: 'Marketing & Brand Designer @ Lifeguard Digital Health',
+  currently: 'Marketing & Digital Designer @ Lifeguard Digital Health',
   links: {
     linkedin: 'https://www.linkedin.com/',
     github: 'https://github.com/',
@@ -12,16 +12,17 @@ export const site = {
 }
 
 export const skills = [
-  'UX Research',
-  'UI Design',
+  'UX/UI Design',
   'Web Design',
   'Visual Identity',
   'Creative Direction',
   'Motion Design',
   'Digital Marketing',
+  'Brand Strategy',
+  'Campaign Management',
+  'Social Media Marketing',
   'Event Coordination',
   'Front End Development',
-  'Copywriting',
   'Prototyping',
 ]
 
@@ -29,11 +30,18 @@ export const tools = [
   'Figma',
   'Adobe Illustrator',
   'Adobe Photoshop',
+  'Adobe InDesign',
   'After Effects',
-  'Blender',
+  'Canva',
   'Webflow',
   'React',
-  'Notion',
+  'Tailwind CSS',
+  'Google Analytics',
+  'HubSpot',
+  'Google Workspace',
+  'Microsoft Office',
+  'Jira',
+  'Claude',
 ]
 
 export const testimonials = [
@@ -47,7 +55,7 @@ export const testimonials = [
   },
   {
     name: 'Tina Lin',
-    title: 'Product Design @ Lifeguard Digital Health',
+    title: 'UX/UI Designer and Developer @ D3 Security',
     quote:
       'Johann consistently met deadlines, brought fresh ideas, and demonstrated a strong talent for design. His work is modern, thoughtfully executed, and shows a clear eye for user-friendly and aesthetic layouts. He has great potential, and I’m confident he will continue to grow into an excellent designer.',
     image: '/images/home/tina.jpg',

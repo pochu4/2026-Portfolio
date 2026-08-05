@@ -1,12 +1,14 @@
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import LocalTime from '../components/LocalTime'
-import Placeholder from '../components/Placeholder'
+import Parallax from '../components/Parallax'
 import ProjectCard from '../components/ProjectCard'
 import { RevealGroup, RevealItem } from '../components/Reveal'
 import ScrollRevealText from '../components/ScrollRevealText'
 import { projects } from '../data/projects'
 import { site, testimonials } from '../data/site'
+import { EASE_OUT } from '../lib/motion'
 
 // Reading-speed based dwell time: ~300wpm (200ms/word) plus a settle-in
 // buffer, clamped so a one-liner isn't instant and an essay doesn't stall.
@@ -40,6 +42,7 @@ export default function Home() {
   const [active, setActive] = useState(0)
   const [cycle, setCycle] = useState({ id: 0, offset: 0 })
   const featured = projects.filter((p) => p.featured)
+  const reduce = useReducedMotion()
 
   useEffect(() => {
     const n = testimonials.length
@@ -81,13 +84,13 @@ export default function Home() {
       >
         <RevealItem
           as="h1"
-          className="max-w-6xl text-[clamp(2rem,5.5vw,4.25rem)] leading-[1.08] tracking-tight min-[1920px]:text-[5rem] min-[2560px]:text-[6rem]"
+          className="max-w-6xl text-[clamp(2rem,5.5vw,4.25rem)] leading-[1.08] tracking-tight min-[1920px]:text-[5rem] min-[1920px]:tracking-[-0.035em] min-[2560px]:text-[6rem] min-[2560px]:tracking-[-0.045em]"
         >
           Hello, I&apos;m Johann, a{' '}
           <span className="text-accent xl:whitespace-nowrap">
-            Marketing &amp; Brand Designer
+            Marketing &amp; Digital Designer
           </span>{' '}
-          with a background in UX, and Web&nbsp;Development.
+          who leads with strategy and designs the experience around it.
         </RevealItem>
 
         <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
@@ -97,17 +100,24 @@ export default function Home() {
               <LocalTime />
             </p>
             <p className="text-muted mt-3 text-sm leading-relaxed">
-              Enthusiastic about design, typography, and the dynamic areas of
-              interaction design across the web. Specialised in building digital
-              products that translate into accessible and functional
-              experiences.
+              I come from marketing — brand positioning, campaigns, keeping
+              a story consistent across every touchpoint. I just happen to
+              also design and build the digital work that story needs, so
+              nothing gets lost in handoff.
             </p>
           </RevealItem>
           <RevealItem>
-            <Placeholder
-              ratio="aspect-[16/9]"
-              className="w-full md:w-72 lg:w-80 min-[1920px]:w-[26rem] min-[2560px]:w-[32rem]"
-            />
+            <Parallax
+              range={30}
+              scale={1.32}
+              className="aspect-[16/9] w-full rounded-sm md:w-72 lg:w-80 min-[1920px]:w-[26rem] min-[2560px]:w-[32rem]"
+            >
+              <img
+                src="/images/home/hero.jpg"
+                alt="Johann watching a sunset game at a Hong Kong sports field"
+                className="h-full w-full object-cover"
+              />
+            </Parallax>
           </RevealItem>
         </div>
       </RevealGroup>
@@ -118,17 +128,24 @@ export default function Home() {
             <p className="text-accent text-sm">(Introduction)</p>
             <ScrollRevealText
               className="mt-3 text-[clamp(1.25rem,2.4vw,2.25rem)] leading-snug tracking-tight"
-              text="I design digital experiences that work for the people using them and the teams maintaining them. Start with what users actually need, map flows, test early, build interfaces that don't need manuals."
+              text="I start with the marketing question — who this is for, what it needs to say, how it should feel — then take it further than most marketers can: designing and building the actual brand and product experience around it."
             />
             <Link to="/about" className="pill mt-8">
               More About Me
             </Link>
           </RevealItem>
           <RevealItem>
-            <Placeholder
-              ratio="aspect-square"
-              className="w-full md:w-72 lg:w-96"
-            />
+            <Parallax
+              range={30}
+              scale={1.28}
+              className="aspect-square w-full rounded-sm md:w-72 lg:w-96"
+            >
+              <img
+                src="/images/home/intro.jpg"
+                alt="Johann taking a photo under lanterns in Macau"
+                className="h-full w-full object-cover"
+              />
+            </Parallax>
           </RevealItem>
         </RevealGroup>
       </section>
@@ -195,7 +212,7 @@ export default function Home() {
                         selectTestimonial(i)
                       }
                     }}
-                    className={`flex min-w-0 cursor-pointer items-start gap-3 pb-4 text-left transition-opacity ${
+                    className={`ease-out flex min-w-0 cursor-pointer items-start gap-3 pb-4 text-left transition-[opacity,transform] duration-150 active:scale-[0.98] ${
                       i === activeIndex
                         ? 'opacity-100'
                         : 'opacity-40 hover:opacity-70'
@@ -252,9 +269,22 @@ export default function Home() {
               <span className="text-accent absolute top-0 left-0 text-xl leading-none">
                 &ldquo;
               </span>
-              <p className="leading-relaxed">
-                {testimonials[activeIndex].quote}
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={activeIndex}
+                  initial={
+                    reduce ? { opacity: 0 } : { opacity: 0, filter: 'blur(2px)' }
+                  }
+                  animate={{ opacity: 1, filter: 'blur(0px)' }}
+                  exit={
+                    reduce ? { opacity: 0 } : { opacity: 0, filter: 'blur(2px)' }
+                  }
+                  transition={{ duration: 0.2, ease: EASE_OUT }}
+                  className="leading-relaxed"
+                >
+                  {testimonials[activeIndex].quote}
+                </motion.p>
+              </AnimatePresence>
               <span className="text-accent absolute top-0 right-0 text-xl leading-none">
                 &rdquo;
               </span>
