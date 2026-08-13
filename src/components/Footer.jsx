@@ -3,7 +3,7 @@ import LocalTime from './LocalTime'
 
 export default function Footer() {
   return (
-    <footer className="shell pt-32 pb-8">
+    <footer id="contact" className="shell pt-32 pb-8">
       <p className="eyebrow">(Let&apos;s Work Together)</p>
       <a
         href={`mailto:${site.email}`}

@@ -8,7 +8,7 @@ export const projects = [
     year: '2026',
     featured: true,
     categories: ['Branding'],
-    scope: 'Branding, Graphic Design',
+    scope: 'Branding',
     software: 'Illustrator, Photoshop, Figma',
     summary:
       'Visual and verbal identity of Lifeguard Digital Health a purpose-driven company in the public health and safety sector.',
@@ -107,16 +107,300 @@ export const projects = [
     ],
   },
   {
-    slug: 'project-two',
-    title: 'Project Two',
-    sector: 'Placeholder Sector',
+    slug: 'lifeguard-portal',
+    title: 'LifeguardPortal',
+    sector: 'Public Health & Safety',
     year: '2026',
     featured: true,
-    categories: ['UX/UI Design'],
-    scope: 'Product Design',
-    software: 'Figma, Photoshop',
-    summary: 'Placeholder summary for the second project.',
-    sections: placeholderSections(),
+    categories: ['Marketing', 'Branding'],
+    scope: 'Creative Direction, Marketing, Event Coordination, Digital Design',
+    software: 'Figma, Illustrator, Photoshop, After Effects, Canva',
+    summary:
+      'Campaign & brand launch for LifeguardPortal — a client portal for public health products. I led the brand, web, and campaign launch.',
+    liveUrl: 'https://lifeguarddhportal.com',
+    heroImage: '/images/projects/lifeguard-portal/hero.png',
+    sections: [
+      {
+        id: 'overview',
+        heading: 'Overview',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Introduction',
+            body: [
+              "LifeguardPortal is where health authorities, clients, and partners sign in to see safety data from Lifeguard's products — including triggered alerts, response times, and confirmed interventions. I led the brand, web, email, social, and webinar design for its first public launch.",
+            ],
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/lifeguard-portal/overview-teasers.png',
+                alt: 'LifeguardPortal coming soon teaser and Data at Your Fingertips promo slides',
+              },
+              {
+                src: '/images/projects/lifeguard-portal/overview-why-we-built-it.png',
+                alt: 'Why We Built It slide outlining accessibility, confidence, and efficiency pillars',
+              },
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Challenge',
+            body: ['The portal unifies four products under one login:'],
+            listStyle: 'bullet',
+            list: [
+              {
+                label: 'LifeguardLite: ',
+                text: 'A room based overdose and environmental detection in shelters and supervised consumption sites.',
+              },
+              {
+                label: 'LifeguardConnect: ',
+                text: 'A public safety app built to keep users connected to direct emergency support and resources.',
+              },
+              {
+                label: 'BuildStrong: ',
+                text: 'A spin-off from LifeguardConnect, catered to CIRP construction members.',
+              },
+              {
+                label: 'Administrators: ',
+                text: 'An internal cross-product view for Lifeguard staff and BC Emergency Health Services.',
+              },
+            ],
+            afterList: [
+              'Marketing it meant explaining life-safety software to provincial health authorities, community outreach organizations, and construction groups all at once without a CRM and no prior campaign playbook.',
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Solution',
+            body: [
+              'I led with outcomes rather than features. Every asset had to answer one question. What does this let you see, and why would our clients find this valuable?',
+              'That produced a rebuilt landing page, a four-template email system, a five-post social series, and a two-day webinar split by audience.',
+            ],
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/lifeguard-portal/solution-analytics-cards.png',
+                alt: 'Analytics dashboard cards showing top features, top visited screens, sessions by platform, and top used substances',
+              },
+              {
+                src: '/images/projects/lifeguard-portal/solution-carousel.png',
+                alt: 'Marketing carousel slides for Make Your Data Work for You and One Login, Full Visibility',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'strategy',
+        heading: 'Strategy',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Audience & Positioning',
+            body: ['Audiences differ sharply by product:'],
+            listStyle: 'bullet',
+            list: [
+              {
+                label: 'LifeguardConnect',
+                text: ' serves four named customer groups — BC Emergency Health Services, Métis Nation BC, NorthWest Ontario, and Lambton County — each scoped to their own regional data',
+              },
+              {
+                label: 'LifeguardLite',
+                text: ' serves shelters and supervised consumption sites, where a manager sees org-level data and floor staff see only their building',
+              },
+              {
+                label: 'BuildStrong',
+                text: ' serves CIRP construction members',
+              },
+            ],
+            afterList: [
+              'The webinar split government and non-government tracks along the same line.',
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Release Plan',
+            body: [
+              'I mapped the release plan against a real calendar in Figma across 5 umbrellas.',
+            ],
+            listStyle: 'bullet',
+            list: ['Webinar', 'Emails', 'Website', 'Social', 'Printed Materials'],
+            afterList: [
+              'Every asset had a planned date before production started.',
+            ],
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/lifeguard-portal/release-plan-table.png',
+                alt: 'Release plan table mapping each deliverable to its date, phase, and channel',
+              },
+              {
+                src: '/images/projects/lifeguard-portal/release-plan-calendar.png',
+                alt: 'April and May 2026 campaign calendars showing scheduled deliverables',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'deliverables',
+        heading: 'Deliverables',
+        blocks: [
+          {
+            type: 'text',
+            body: [
+              'Across a six-week runway I produced roughly twenty assets spanning five channels. Every one traced back to the same four positioning pillars.',
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Website',
+            body: [
+              'Replaced a static, unscrollable landing page with a benefit-led scroll at lifeguarddhportal.com:',
+            ],
+            cta: { label: 'View Live Website', url: 'https://lifeguarddhportal.com' },
+            listStyle: 'bullet',
+            list: [
+              'Hero and explicit value proposition',
+              'Interactive dashboard preview — for most prospects, the first time they could see what the data actually looks like before signing in',
+              'Custom video section',
+              'Trusted-partners showcase for credibility',
+              'Features breakdown mapped to the four pillars',
+              'A note from the CEO',
+              'Q&A',
+            ],
+            afterList: [
+              'I ran a joint QA pass with the developers across the site and email templates before launch.',
+            ],
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/lifeguard-portal/website-before.png',
+                alt: 'LifeguardPortal website before the redesign',
+                caption: '(Before)',
+              },
+              {
+                src: '/images/projects/lifeguard-portal/website-after.png',
+                alt: 'LifeguardPortal website after the redesign',
+                caption: '(After)',
+              },
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Email Systems',
+            body: [
+              "Four templates, each designed desktop-first with a mobile variant. Because portal access is invite-only with no self-registration, the transactional emails are the brand's first impression — so they were held to the same standard as the marketing newsletter.",
+            ],
+            listStyle: 'plain',
+            list: [
+              '1. Newsletter — campaign nurture',
+              '2. User Invitation',
+              '3. Password Reset',
+              '4. Forgot Username',
+            ],
+          },
+          {
+            type: 'images',
+            full: true,
+            items: [
+              {
+                src: '/images/projects/lifeguard-portal/email-systems.png',
+                alt: 'Four email templates: teaser, invitation, password reset, and forgot username',
+              },
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Social Campaigns',
+            body: [
+              'A four-post sequence built for Instagram and LinkedIn, released on a weekly cadence and sequenced against the webinar rather than posted ad hoc.',
+            ],
+          },
+          {
+            type: 'images',
+            full: true,
+            items: [
+              {
+                src: '/images/projects/lifeguard-portal/social-campaigns.png',
+                alt: 'Social campaign post sequence for Instagram and LinkedIn',
+              },
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Webinar Campaign',
+            body: [
+              'A four-post sequence built for Instagram and LinkedIn, released on a weekly cadence and sequenced against the webinar rather than posted ad hoc.',
+            ],
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/lifeguard-portal/webinar-event.png',
+                alt: 'Photos from the live LifeguardPortal webinar event alongside the presentation slide deck',
+              },
+              {
+                src: '/images/projects/lifeguard-portal/webinar-invitation.png',
+                alt: 'Webinar invitation graphic with Day 1 and Day 2 invite, accept, and acceptance rate stats',
+              },
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Print & Onboarding',
+            body: [
+              "A welcome package sent two days after the final session, so new users weren't dropped into a data product cold. Contents included the LifeguardPortal Quick Start Guide, posters, further training materials, and links to our YouTube tutorials.",
+            ],
+          },
+        ],
+      },
+      {
+        id: 'results',
+        heading: 'Results',
+        blocks: [
+          {
+            type: 'stats',
+            items: [
+              { value: '129', label: 'Webinar invites across two sessions' },
+              { value: '30', label: 'RSVP Accepts' },
+              { value: '~23%', label: 'Blended Acceptance Rate' },
+              { value: '20+', label: 'Assets shipped across five channels' },
+            ],
+          },
+          {
+            type: 'text',
+            body: [
+              'Session one drew 14 accepts from 64 invites; session two drew 16 from 65 — a blended ~23% acceptance rate on a first-ever event with no CRM, no historical benchmark, and no existing marketing list to draw from.',
+              "Beyond the numbers, the campaign gave Lifeguard Digital Health its first coordinated public presence: a landing page that actually explains the product, a transactional email system that carries the brand, and a reusable release-plan structure the team can run again.",
+            ],
+          },
+        ],
+      },
+      {
+        id: 'reflection',
+        heading: 'Reflection',
+        blocks: [
+          {
+            type: 'text',
+            body: [
+              "Running Lifeguard Digital Health's first-ever webinar and first coordinated multi-channel campaign meant building the release plan and the process at the same time — there was no internal playbook to inherit.",
+              "The gaps that mattered were operational, not creative. No CRM meant every RSVP and bounce was tracked by hand, and open invite-forwarding meant the attendee list never matched the RSVP list. Both are tooling problems with clear fixes, and I'd get a lightweight CRM in place before the first invite goes out next time.",
+              "What I'd keep is the decision to lead with outcomes over features. For a product whose dashboards report on overdose alerts and confirmed interventions, the most useful thing marketing can do is explain plainly what the data shows — and who it protects.",
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'conscious-connections',

@@ -30,11 +30,10 @@ export default function About() {
           <RevealItem>
             <p className="eyebrow">(Introduction)</p>
             <p className="mt-3 text-[clamp(1.25rem,2.4vw,2.25rem)] leading-snug tracking-tight">
-              Hello again — I&apos;m Johann, a Marketing &amp; Digital
-              Designer based in Vancouver. I think like a marketer
-              first — brand, positioning, the story a company needs to
-              tell — then I design and build the product experience that
-              tells it.
+              Hello again, I&apos;m Johann, a Marketing &amp; Digital Designer
+              based in Vancouver. Currently, I&apos;m working across brand
+              identity, digital marketing, and web design and have
+              experience in UX/UI and Front-End Development.
             </p>
           </RevealItem>
         </div>
@@ -65,13 +64,21 @@ export default function About() {
         <RevealGroup>
           <SectionRow label="First Experiences">
             <p>
-              I didn&apos;t start in design. I started in Marketing
-              Management, focused on communications. That&apos;s where I
-              picked up the fundamentals that still shape how I work:
-              storytelling, brand positioning, understanding who you&apos;re
-              actually talking to. But I kept gravitating toward the visual
-              side of the job, the part where an idea becomes something
-              people can actually see and use.
+              Design was never the plan for me, but more of an idea and a
+              passion. Growing up, I had tons of interest in different
+              creative fields like photography and fashion, which I thought
+              would be great to turn into a career. But I got pulled away
+              and led into the thought that the creative industry could
+              only get me so far.
+            </p>
+            <p>
+              So I started in Marketing Management, focusing on
+              communications. That&apos;s mainly where I picked up the
+              fundamentals that still shape how I like to work —
+              storytelling, brand positioning, and understanding who
+              you&apos;re really talking to. But again, I felt more
+              compelled toward the visual side of the job, the part where
+              an idea becomes something people can see.
             </p>
             <p>
               That pull led me to New Media Design &amp; Web Development at
@@ -79,8 +86,9 @@ export default function About() {
               strategy, UI design, and front-end code. From there I landed a
               design and web development internship at Convergence/Pixel
               Ramen, working on branding, visual content, web builds, QA,
-              and front-end. It was my first real taste of shipping work for
-              actual clients instead of a classroom brief.
+              and front-end. It was my first real taste of working across
+              cross-functional teams and clients instead of a classroom
+              brief.
             </p>
           </SectionRow>
         </RevealGroup>

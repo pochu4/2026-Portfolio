@@ -7,8 +7,8 @@ import About from './pages/About'
 import Home from './pages/Home'
 import ConsciousConnections from './pages/projects/ConsciousConnections'
 import LifeguardDigitalHealth from './pages/projects/LifeguardDigitalHealth'
+import LifeguardPortal from './pages/projects/LifeguardPortal'
 import ProjectFour from './pages/projects/ProjectFour'
-import ProjectTwo from './pages/projects/ProjectTwo'
 import Projects from './pages/Projects'
 
 export default function App() {
@@ -25,7 +25,10 @@ export default function App() {
             path="/projects/lifeguard-digital-health"
             element={<LifeguardDigitalHealth />}
           />
-          <Route path="/projects/project-two" element={<ProjectTwo />} />
+          <Route
+            path="/projects/lifeguard-portal"
+            element={<LifeguardPortal />}
+          />
           <Route
             path="/projects/conscious-connections"
             element={<ConsciousConnections />}

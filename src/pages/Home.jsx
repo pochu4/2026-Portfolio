@@ -100,10 +100,10 @@ export default function Home() {
               <LocalTime />
             </p>
             <p className="text-muted mt-3 text-sm leading-relaxed">
-              I come from marketing — brand positioning, campaigns, keeping
-              a story consistent across every touchpoint. I just happen to
-              also design and build the digital work that story needs, so
-              nothing gets lost in handoff.
+              Right now, I&apos;m at Lifeguard Digital Health working across
+              brand positioning, campaigns, digital marketing, brand
+              identity, and web design. Before that, I picked up UX/UI, QA,
+              and front-end dev along the way.
             </p>
           </RevealItem>
           <RevealItem>
@@ -128,7 +128,7 @@ export default function Home() {
             <p className="text-accent text-sm">(Introduction)</p>
             <ScrollRevealText
               className="mt-3 text-[clamp(1.25rem,2.4vw,2.25rem)] leading-snug tracking-tight"
-              text="I start with the marketing question — who this is for, what it needs to say, how it should feel — then take it further than most marketers can: designing and building the actual brand and product experience around it."
+              text="Six years in client-facing roles has taught me to ask the proper questions first. Who's this for, what does it need to do, and how should it feel? Then I take it a step further by designing and building the actual brand and product experience around it."
             />
             <Link to="/about" className="pill mt-8">
               More About Me

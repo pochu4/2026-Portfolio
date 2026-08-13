@@ -41,13 +41,25 @@ export default function ProjectDetailLayout({ project }) {
 
   return (
     <>
-      <section className="shell pt-16 md:pt-24">
+      <section className="shell pt-16 md:pt-24 2xl:pt-28">
         <p className="text-accent text-sm">{project.title}</p>
-        <h1 className="mt-3 max-w-6xl text-[clamp(1.75rem,4.5vw,4rem)] leading-tight tracking-tight">
-          {project.summary}
-        </h1>
+        <div className="mt-3 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <h1 className="max-w-6xl text-[clamp(1.75rem,4.5vw,4rem)] leading-tight tracking-tight">
+            {project.summary}
+          </h1>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-accent ease-out inline-flex shrink-0 items-center justify-center rounded-full px-5 py-2.5 text-sm whitespace-nowrap text-white transition-[opacity,transform] duration-150 hover:opacity-85 active:scale-[0.97]"
+            >
+              View Live Website
+            </a>
+          )}
+        </div>
 
-        <dl className="border-line mt-12 grid grid-cols-2 gap-x-6 gap-y-6 border-t pt-6 text-sm sm:grid-cols-4">
+        <dl className="border-line mt-12 grid grid-cols-2 gap-x-6 gap-y-6 border-t pt-6 text-sm sm:grid-cols-4 2xl:mt-16">
           <div>
             <dt className="text-muted">(Scope)</dt>
             <dd className="mt-2 flex flex-wrap gap-2">
@@ -81,20 +93,20 @@ export default function ProjectDetailLayout({ project }) {
             loop
             muted
             playsInline
-            className="mt-10 aspect-[16/9] w-full rounded-sm object-cover"
+            className="mt-10 aspect-[16/9] w-full rounded-sm object-cover 2xl:mt-14"
           />
         ) : project.heroImage ? (
           <img
             src={project.heroImage}
             alt={project.title}
-            className="mt-10 aspect-[16/9] w-full rounded-sm object-cover"
+            className="mt-10 aspect-[16/9] w-full rounded-sm object-cover 2xl:mt-14"
           />
         ) : (
-          <Placeholder ratio="aspect-[16/9]" className="mt-10" />
+          <Placeholder ratio="aspect-[16/9]" className="mt-10 2xl:mt-14" />
         )}
       </section>
 
-      <section className="shell mt-28 grid gap-12 md:mt-40 lg:grid-cols-[180px_1fr]">
+      <section className="shell mt-28 grid gap-12 md:mt-40 lg:grid-cols-[180px_1fr] 2xl:mt-48">
         <nav className="hidden self-start lg:sticky lg:top-28 lg:block">
           <ul className="space-y-3 text-sm">
             {sections.map(({ id, heading }) => (
@@ -129,7 +141,7 @@ export default function ProjectDetailLayout({ project }) {
           </ul>
         </nav>
 
-        <div className="space-y-24">
+        <div className="space-y-24 2xl:space-y-32">
           {sections.map((section, i) => {
             const isLast = i === sections.length - 1
             const heading = (
@@ -138,9 +150,9 @@ export default function ProjectDetailLayout({ project }) {
               </h2>
             )
             const blocks = section.blocks && (
-              <div className="space-y-12">
+              <div className="space-y-12 2xl:space-y-16">
                 {section.blocks.map((block, i) => (
-                  <SectionBlock key={i} block={block} />
+                  <SectionBlock key={i} block={block} isFirst={i === 0} />
                 ))}
               </div>
             )
@@ -163,7 +175,7 @@ export default function ProjectDetailLayout({ project }) {
                 ) : (
                   <>
                     {heading}
-                    <div className="mt-10">{blocks}</div>
+                    <div className="mt-10 2xl:mt-14">{blocks}</div>
                   </>
                 )}
               </div>
@@ -176,7 +188,7 @@ export default function ProjectDetailLayout({ project }) {
         </div>
       </section>
 
-      <section className="shell mt-28 md:mt-40">
+      <section className="shell mt-28 md:mt-40 2xl:mt-48">
         <h2 className="text-[clamp(1.75rem,3.5vw,3.25rem)] tracking-tight">
           More Projects
           <sup className="text-accent ml-1 align-top top-0 text-base">
@@ -206,15 +218,38 @@ export default function ProjectDetailLayout({ project }) {
 // (a full-width 2-up grid, or a single contained image when there's only
 // one). imageText is a text row that also carries one supporting image,
 // rendered below the text.
-function SectionBlock({ block }) {
+function SectionBlock({ block, isFirst }) {
   if (block.type === 'images') {
-    return <SectionImages items={block.items} count={block.count} />
+    return (
+      <SectionImages items={block.items} count={block.count} full={block.full} />
+    )
+  }
+
+  if (block.type === 'stats') {
+    return <SectionStats items={block.items} />
   }
 
   return (
     <div className="space-y-8">
-      <SectionText block={block} />
+      <SectionText block={block} isFirst={isFirst} />
       {block.type === 'imageText' && <SectionImage img={block.image} />}
+    </div>
+  )
+}
+
+// A bordered row of headline numbers (e.g. campaign results) — each stat
+// pairs a large accent-colored value with a short label underneath.
+function SectionStats({ items }) {
+  return (
+    <div className="border-line grid grid-cols-2 gap-x-6 gap-y-8 rounded-sm border p-8 sm:grid-cols-4">
+      {items.map((stat, i) => (
+        <div key={i}>
+          <p className="text-accent text-[clamp(2rem,4.5vw,3.5rem)] leading-none tracking-tight">
+            {stat.value}
+          </p>
+          <p className="mt-3 text-sm leading-snug">{stat.label}</p>
+        </div>
+      ))}
     </div>
   )
 }
@@ -233,24 +268,45 @@ function SectionImage({ img }) {
   )
 }
 
-// Renders real images (`items`, each `{ src, alt }`) or, when a section's
-// imagery isn't ready yet, `count` gray placeholder boxes in the same grid.
-function SectionImages({ items, count }) {
+// Renders real images (`items`, each `{ src, alt, caption? }`) or, when a
+// section's imagery isn't ready yet, `count` gray placeholder boxes in the
+// same grid. An item's `caption` (e.g. "(Before)") renders muted and
+// centered directly above its image. `full` stretches a lone image to the
+// full content width (matching a 2-up row) instead of the usual contained
+// single-image treatment — for wide composite screenshots that read as
+// undersized when capped at max-w-2xl.
+function SectionImages({ items, count, full }) {
   if (items) {
     if (items.length === 1) {
+      if (full) {
+        return (
+          <img
+            src={items[0].src}
+            alt={items[0].alt}
+            loading="lazy"
+            className={`w-full rounded-sm object-cover ${items[0].ratio ?? 'aspect-video'}`}
+          />
+        )
+      }
       return <SectionImage img={items[0]} />
     }
 
     return (
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {items.map((img, i) => (
-          <img
-            key={i}
-            src={img.src}
-            alt={img.alt}
-            loading="lazy"
-            className={`w-full rounded-sm object-cover ${img.ratio ?? 'aspect-video'}`}
-          />
+          <div key={i}>
+            {img.caption && (
+              <p className="text-muted mb-2 text-center text-sm">
+                {img.caption}
+              </p>
+            )}
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className={`w-full rounded-sm object-cover ${img.ratio ?? 'aspect-video'}`}
+            />
+          </div>
         ))}
       </div>
     )
@@ -272,13 +328,44 @@ function SectionImages({ items, count }) {
 }
 
 // A subsection label (left column, ~200px) paired with its paragraphs
-// (right column, filling the rest of the row). The label column is always
-// reserved, even when a block has no heading (a continuation paragraph
-// within the same subsection) — otherwise that paragraph would collapse
-// back to the left margin instead of staying aligned under the body copy
-// above it.
-function SectionText({ block }) {
+// (right column, filling the rest of the row). The label column is
+// reserved even when a block has no heading, so a continuation paragraph
+// (following a headed block within the same subsection) stays aligned
+// under the body copy above it instead of collapsing back to the left
+// margin. The one exception is a no-heading block that opens a section —
+// with no subheading above it to align under, reserving that empty column
+// just reads as a stray indent, so it renders flush with the section
+// heading instead.
+function SectionText({ block, isFirst }) {
   const isIntroduction = block.heading === 'Introduction'
+  const flush = isFirst && !block.heading
+
+  const content = (
+    <div className="space-y-4 leading-relaxed">
+      {isIntroduction ? (
+        <p className="line-clamp-4">{block.body.join(' ')}</p>
+      ) : (
+        block.body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
+      )}
+      {block.list && <SectionList list={block.list} style={block.listStyle} />}
+      {block.afterList &&
+        block.afterList.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
+      {block.cta && (
+        <div className="pt-2">
+          <a
+            href={block.cta.url}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-accent ease-out inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm whitespace-nowrap text-white transition-[opacity,transform] duration-150 hover:opacity-85 active:scale-[0.97]"
+          >
+            {block.cta.label}
+          </a>
+        </div>
+      )}
+    </div>
+  )
+
+  if (flush) return content
 
   return (
     <div className="grid gap-3 sm:grid-cols-[200px_1fr] sm:gap-14">
@@ -289,22 +376,54 @@ function SectionText({ block }) {
           </h3>
         )}
       </div>
-      <div className="space-y-4 leading-relaxed">
-        {isIntroduction ? (
-          <p className="line-clamp-4">{block.body.join(' ')}</p>
-        ) : (
-          block.body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
-        )}
-        {block.list && (
-          <ul className="space-y-1">
-            {block.list.map((item, i) => (
-              <li key={i} className="font-medium">
-                {item}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      {content}
     </div>
+  )
+}
+
+// Renders a block's `list`. Default (no `listStyle`) keeps the original
+// treatment — every item bold, no marker — for sections written that way.
+// `listStyle: 'bullet'` draws a real bullet marker per item, and bolds only
+// an item's `label` (when items are `{ label, text }` objects) rather than
+// the whole line. `listStyle: 'plain'` renders items as-is with no marker
+// and no bold, for lists that already carry their own marker (e.g. "1. ...").
+function SectionList({ list, style }) {
+  if (style === 'bullet') {
+    return (
+      <ul className="list-disc space-y-2 pl-5 marker:text-muted">
+        {list.map((item, i) => (
+          <li key={i}>
+            {typeof item === 'string' ? (
+              item
+            ) : (
+              <>
+                <span className="font-medium">{item.label}</span>
+                {item.text}
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  if (style === 'plain') {
+    return (
+      <ul className="space-y-1">
+        {list.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  return (
+    <ul className="space-y-1">
+      {list.map((item, i) => (
+        <li key={i} className="font-medium">
+          {item}
+        </li>
+      ))}
+    </ul>
   )
 }

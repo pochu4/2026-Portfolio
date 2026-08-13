@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { site } from '../data/site'
+import { getLenis } from '../lib/lenis'
 import MobileNav from './MobileNav'
 
 export default function Header() {
@@ -85,7 +86,13 @@ export default function Header() {
               Resume
             </a>
             <a
-              href={`mailto:${site.email}`}
+              href="#contact"
+              onClick={(e) => {
+                const lenis = getLenis()
+                if (!lenis) return
+                e.preventDefault()
+                lenis.scrollTo('#contact')
+              }}
               className="bg-ink ease-out rounded-full px-5 py-2.5 text-white transition-[opacity,transform] duration-150 hover:opacity-85 active:scale-[0.97]"
             >
               Get in Touch
