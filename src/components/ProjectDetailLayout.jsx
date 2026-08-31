@@ -151,9 +151,14 @@ export default function ProjectDetailLayout({ project }) {
             )
             const blocks = section.blocks && (
               <div className="space-y-12 2xl:space-y-16">
-                {section.blocks.map((block, i) => (
-                  <SectionBlock key={i} block={block} isFirst={i === 0} />
-                ))}
+                {(() => {
+                  let sawHeading = false
+                  return section.blocks.map((block, i) => {
+                    const flush = !block.heading && !sawHeading
+                    if (block.heading) sawHeading = true
+                    return <SectionBlock key={i} block={block} flush={flush} />
+                  })
+                })()}
               </div>
             )
 
@@ -217,8 +222,9 @@ export default function ProjectDetailLayout({ project }) {
 // paragraphs, matching the site's case-study editorial layout) and images
 // (a full-width 2-up grid, or a single contained image when there's only
 // one). imageText is a text row that also carries one supporting image,
-// rendered below the text.
-function SectionBlock({ block, isFirst }) {
+// rendered below the text. prototype embeds a clickable Figma prototype
+// with a link button underneath it.
+function SectionBlock({ block, flush }) {
   if (block.type === 'images') {
     return (
       <SectionImages items={block.items} count={block.count} full={block.full} />
@@ -229,10 +235,43 @@ function SectionBlock({ block, isFirst }) {
     return <SectionStats items={block.items} />
   }
 
+  if (block.type === 'prototype') {
+    return <SectionPrototype block={block} />
+  }
+
   return (
     <div className="space-y-8">
-      <SectionText block={block} isFirst={isFirst} />
+      <SectionText block={block} flush={flush} />
       {block.type === 'imageText' && <SectionImage img={block.image} />}
+    </div>
+  )
+}
+
+// An embedded, clickable Figma prototype (portrait, matching a mobile app
+// frame) with a link to open the full prototype underneath it.
+function SectionPrototype({ block }) {
+  return (
+    <div className="space-y-6">
+      <div className="border-line mx-auto aspect-[9/16] w-full max-w-md overflow-hidden rounded-sm border">
+        <iframe
+          src={block.embedUrl}
+          title="Interactive prototype"
+          className="h-full w-full"
+          allowFullScreen
+        />
+      </div>
+      {block.cta && (
+        <div className="flex justify-center">
+          <a
+            href={block.cta.url}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-accent ease-out inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm whitespace-nowrap text-white transition-[opacity,transform] duration-150 hover:opacity-85 active:scale-[0.97]"
+          >
+            {block.cta.label}
+          </a>
+        </div>
+      )}
     </div>
   )
 }
@@ -263,7 +302,7 @@ function SectionImage({ img }) {
       src={img.src}
       alt={img.alt}
       loading="lazy"
-      className={`w-full max-w-2xl rounded-sm object-cover ${img.ratio ?? 'aspect-video'}`}
+      className={`w-full rounded-sm object-cover ${img.full ? '' : 'max-w-2xl'} ${img.ratio ?? 'aspect-video'}`}
     />
   )
 }
@@ -328,17 +367,15 @@ function SectionImages({ items, count, full }) {
 }
 
 // A subsection label (left column, ~200px) paired with its paragraphs
-// (right column, filling the rest of the row). The label column is
-// reserved even when a block has no heading, so a continuation paragraph
-// (following a headed block within the same subsection) stays aligned
-// under the body copy above it instead of collapsing back to the left
-// margin. The one exception is a no-heading block that opens a section —
-// with no subheading above it to align under, reserving that empty column
-// just reads as a stray indent, so it renders flush with the section
-// heading instead.
-function SectionText({ block, isFirst }) {
+// (right column, filling the rest of the row). `flush` (computed by the
+// caller) is true for an unheaded block that has no heading anywhere
+// before it in the section — with no subheading above it to align under,
+// reserving that empty column would just read as a stray indent, so it
+// renders full width instead. Once a heading has appeared, later unheaded
+// blocks keep the reserved column so they stay aligned under that
+// heading's body copy.
+function SectionText({ block, flush }) {
   const isIntroduction = block.heading === 'Introduction'
-  const flush = isFirst && !block.heading
 
   const content = (
     <div className="space-y-4 leading-relaxed">
@@ -350,7 +387,17 @@ function SectionText({ block, isFirst }) {
       {block.list && <SectionList list={block.list} style={block.listStyle} />}
       {block.afterList &&
         block.afterList.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
-      {block.cta && (
+      {block.cta && block.cta.style === 'link' && (
+        <a
+          href={block.cta.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-2 inline-block underline underline-offset-4"
+        >
+          {block.cta.label}
+        </a>
+      )}
+      {block.cta && block.cta.style !== 'link' && (
         <div className="pt-2">
           <a
             href={block.cta.url}

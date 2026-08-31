@@ -339,7 +339,7 @@ export const projects = [
             type: 'text',
             heading: 'Webinar Campaign',
             body: [
-              'A four-post sequence built for Instagram and LinkedIn, released on a weekly cadence and sequenced against the webinar rather than posted ad hoc.',
+              'Invitation graphics built for each of the two sessions, tracking invites sent, accepts, and acceptance rate per day. The live event itself was covered with its own presentation deck and event photography.',
             ],
           },
           {
@@ -646,117 +646,207 @@ export const projects = [
     ],
   },
   {
-    slug: 'project-four',
-    title: 'Project Four',
-    sector: 'Placeholder Sector',
-    year: '2025',
+    slug: 'roam',
+    title: 'ROAM',
+    sector: 'Outdoor & Recreation',
+    year: '2024',
     featured: false,
-    categories: ['Branding', 'Marketing'],
-    scope: 'Branding',
-    software: 'Illustrator, Photoshop, Figma',
-    summary: 'Placeholder summary for the fourth project.',
-    sections: placeholderSections(),
+    categories: ['UX/UI Design'],
+    scope: 'UX Strategy, UI Design',
+    software: 'Figma, Adobe CC',
+    summary:
+      'Reliable trail information, connectivity issues, difficulty seeking trails, proper equipment, and accurate conditions — common hiking dilemmas that needed solutions. ROAM was designed in a 22-hour timeframe.',
+    heroImage: '/images/projects/roam/mockup.png',
+    sections: [
+      {
+        id: 'overview',
+        heading: 'Overview',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Challenge',
+            body: [
+              "Many hikers struggle with inconsistent trail information, connectivity issues, and difficulty in selecting suitable trails. While existing hiking apps provide extensive trail data, users were often faced with conflicting information for trail details, outdated conditions, and an overwhelming amount of information that isn't easily digestible. The challenge was to create a visually clear experience that allows for users to confidently navigate through the pages and choose trails based on accurate information.",
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Solution',
+            body: [
+              'To better understand the challenges faced by users on current hiking apps, I applied an empathetic approach to my design process. Through a short competitive analysis, user research methods/exercises and usability testing, I was able to identify key friction points and designed a solution that focuses on creating a seamless trail search experience, simplified card system for quick access to key trail details, and an offline friendly experience to address the access of information in remote areas.',
+            ],
+          },
+          {
+            type: 'text',
+            body: [],
+            cta: {
+              label: 'View Figma File',
+              url: 'https://www.figma.com/design/ful1aAK2W8anNSx4CZljDa/ROAM?node-id=106-8069&t=Up7sO5cHM230Qab4-1',
+              style: 'link',
+            },
+          },
+          {
+            type: 'images',
+            full: true,
+            items: [
+              {
+                src: '/images/projects/roam/multiscreen.jpg',
+                alt: 'ROAM Hiking Project All Screen Mockups',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'research',
+        heading: 'Research',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Competitive Analysis',
+            body: [
+              'While analyzing a few of the leading competitors to ROAM, I was able to keep an eye out for pain points, and user frustrations. An important insight from a Reddit community discussion highlighted the discrepancy of data between apps, which brings out a major trust issue that needed to be addressed.',
+            ],
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/roam/user-persona.png',
+                alt: 'ROAM Hiking Project - User Persona',
+              },
+              {
+                src: '/images/projects/roam/empathy-map.png',
+                alt: 'ROAM Hiking Project - Empathy Map',
+              },
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Persona & Empathy Mapping',
+            body: [
+              'To gain a better understanding of users, I created a persona and empathy map that captures their main goals, pain points, and behaviours. This helped me to identify some key emotional triggers and challenges, allowing me to design a solution that resonates with their needs.',
+            ],
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/roam/journey-mapping.png',
+                alt: 'ROAM Hiking Project - Journey Mapping',
+              },
+              {
+                src: '/images/projects/roam/userflow.png',
+                alt: 'ROAM Hiking Project - User Flow',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'ideation',
+        heading: 'Ideation',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'User Flow',
+            body: [
+              'A primary user flow was created that maps out the main route of the typical user - from sign-up to discovery, navigation and tracking progress. This exercise ensured that the main interaction points for the app were covered and taken into account to remove any obstacles that the users may face. It also creates clear routes and decision points to help me create a more user-friendly app.',
+            ],
+          },
+          {
+            type: 'text',
+            heading: 'Low-Fidelity Wireframing',
+            body: [
+              'Beginning with low-fidelity wireframes, I was able to map out the overall layout and structure for ROAM. The initial screens developed had a strong emphasis towards key interactions within the app, follows the user flowchart, and ensures that the primary functions for trail searching, navigation, and filtering were displayed. This stage allowed for a quick usability test to uncover issues early in the process before moving into hi-fidelity designs.',
+            ],
+          },
+          {
+            type: 'images',
+            full: true,
+            items: [
+              {
+                src: '/images/projects/roam/lowfi.png',
+                alt: 'ROAM Hiking Project - Low Fidelity Wireframing',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'design',
+        heading: 'Design',
+        blocks: [
+          {
+            type: 'text',
+            heading: 'Inspiration & Iteration',
+            body: [
+              'Before creating high fidelity designs, I explored various mobile apps and designs that showcased clear and meaningful data, intuitive icons, and thoughtful usages of colour. Feedback from the low-fidelity stages revealed that there was a clear need for a more robust filtering system, leading to the production of a pop-up menu with detailed options and selections such as difficulty, length, elevation gain, and duration in the hi-fi stages.',
+            ],
+          },
+          {
+            type: 'images',
+            full: true,
+            items: [
+              {
+                src: '/images/projects/roam/hifi-1.png',
+                alt: 'ROAM Hiking Project - High Fidelity Wireframing',
+              },
+            ],
+          },
+          {
+            type: 'imageText',
+            heading: 'Hi-Fidelity Wireframing',
+            body: [
+              'Transitioning into the hi-fidelity stages, I realized that visual appeal plays a large role when hikers make decisions which leads to a potentially cluttered visual design and an overload of images. Therefore, I opted for a dark theme with several background overlays underneath crucial interactive elements to avoid confusions, reducing the cognitive load and assure that users navigate throughout the app seamlessly.',
+            ],
+            image: {
+              src: '/images/projects/roam/hifi-4.png',
+              alt: 'ROAM Hiking Project - Mockups - Signup, Home, Filters',
+              full: true,
+            },
+          },
+          {
+            type: 'images',
+            items: [
+              {
+                src: '/images/projects/roam/hifi-5.png',
+                alt: 'ROAM Hiking Project - Mockups - Search, Detail',
+              },
+              {
+                src: '/images/projects/roam/hifi-6.png',
+                alt: 'ROAM Hiking Project - Mockups - More Filters, Navigating, Summary',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'reflection',
+        heading: 'Reflection',
+        blocks: [
+          {
+            type: 'text',
+            body: [
+              'Throughout the development of the ROAM app, I gained valuable insight into the design process and the importance of research and feedback. Using various UX research methodologies allowed me to adopt a user-centric approach and make informed decisions that guided the design process.',
+              "Looking forward, there's tons of room for improvement that I would've liked to incorporate into the project. By setting a proper branding/design system for colors and typography in Figma early in the process would've allowed me to work more efficient and create better consistency all around the pages.",
+              "As this project was done under a short timeframe, all the components were custom made, which is quite unrealistic. For my future projects, I would hope to create a more consistent digital experience that uses an existing UI kit like Google's Material Design or Carbon IBM's design system to get a better feel for working with existing components. This would allow me to learn how to use an organized set of components and existing principles that I could apply to my projects, instead of having to create from scratch.",
+              'Overall, ROAM has been a rewarding learning experience that not only enhances the trail discovery for outdoor enthusiasts, but also helps to motivate individuals to get outdoors and enjoy the physical and mental health benefits that hiking has to offer.',
+            ],
+          },
+          {
+            type: 'prototype',
+            embedUrl:
+              'https://embed.figma.com/proto/ful1aAK2W8anNSx4CZljDa/ROAM?page-id=1%3A2757&node-id=81-3529&viewport=226%2C83%2C0.15&scaling=scale-down&content-scaling=fixed&embed-host=share',
+            cta: {
+              label: 'View Interactive Prototype',
+              url: 'https://www.figma.com/proto/ful1aAK2W8anNSx4CZljDa/ROAM?page-id=1%3A2757&node-id=81-3529&viewport=226%2C83%2C0.15&scaling=scale-down&content-scaling=fixed',
+            },
+          },
+        ],
+      },
+    ],
   },
 ]
-
-// Generic case-study scaffolding for projects whose real content isn't
-// written yet, so every project page renders the same section rhythm
-// (and every subsection has a placeholder heading) rather than an empty
-// page. Called per-project so each gets its own array instances.
-function placeholderSections() {
-  return [
-    {
-      id: 'overview',
-      heading: 'Overview',
-      blocks: [
-        {
-          type: 'text',
-          heading: 'Introduction',
-          body: [
-            'Placeholder copy. Introduce the project, the client or context, and what this case study will cover.',
-          ],
-        },
-        { type: 'images', count: 2 },
-        {
-          type: 'text',
-          heading: 'Challenge',
-          body: [
-            'Placeholder copy. Describe the core problem, the constraints, and what made this hard.',
-          ],
-        },
-        {
-          type: 'text',
-          heading: 'Solution',
-          body: ['Placeholder copy. Summarize the direction taken to solve it.'],
-        },
-        { type: 'images', count: 2 },
-      ],
-    },
-    {
-      id: 'research',
-      heading: 'Research',
-      blocks: [
-        {
-          type: 'text',
-          heading: 'Problem Statement',
-          body: ["Placeholder copy. Frame the problem from the user's perspective."],
-        },
-        {
-          type: 'text',
-          heading: 'User Research',
-          body: [
-            'Placeholder copy. Describe interviews, surveys, or other research methods used.',
-          ],
-        },
-        { type: 'images', count: 2 },
-      ],
-    },
-    {
-      id: 'ideation',
-      heading: 'Ideation',
-      blocks: [
-        {
-          type: 'text',
-          heading: 'Exploration',
-          body: [
-            'Placeholder copy. Describe early sketches, wireframes, or concept directions explored.',
-          ],
-        },
-        { type: 'images', count: 2 },
-        {
-          type: 'text',
-          heading: 'Feedback',
-          body: ['Placeholder copy. Describe how feedback shaped the direction.'],
-        },
-      ],
-    },
-    {
-      id: 'design',
-      heading: 'Design',
-      blocks: [
-        {
-          type: 'text',
-          heading: 'Visual Design',
-          body: [
-            'Placeholder copy. Describe the final visual system and key design decisions.',
-          ],
-        },
-        { type: 'images', count: 4 },
-      ],
-    },
-    {
-      id: 'reflection',
-      heading: 'Reflection',
-      blocks: [
-        {
-          type: 'text',
-          body: [
-            'Placeholder copy. What you learned and what you would revisit.',
-          ],
-        },
-      ],
-    },
-  ]
-}
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)

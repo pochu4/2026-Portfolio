@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import ConsciousConnections from './pages/projects/ConsciousConnections'
 import LifeguardDigitalHealth from './pages/projects/LifeguardDigitalHealth'
 import LifeguardPortal from './pages/projects/LifeguardPortal'
-import ProjectFour from './pages/projects/ProjectFour'
+import Roam from './pages/projects/Roam'
 import Projects from './pages/Projects'
 
 export default function App() {
@@ -33,7 +33,7 @@ export default function App() {
             path="/projects/conscious-connections"
             element={<ConsciousConnections />}
           />
-          <Route path="/projects/project-four" element={<ProjectFour />} />
+          <Route path="/projects/roam" element={<Roam />} />
           <Route path="*" element={<Home />} />
         </PageTransition>
       </main>

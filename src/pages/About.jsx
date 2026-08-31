@@ -127,7 +127,11 @@ export default function About() {
               away from the digital world. These days I like going to the
               gym, playing golf, fishing, or trying new hobbies.
             </p>
-            <p>I&apos;ve also enjoyed photography and fashion.</p>
+            <p>
+              Photography and fashion are two of my other creative
+              interests. Currently, I&apos;m shooting on a Fujifilm X-T30,
+              though I&apos;m looking to downsize to a smaller camera that can still shoot with different film simulations.
+            </p>
             <p>
               Music also plays a big role in my life. I listen to music
               during almost every activity, while working, travelling,
