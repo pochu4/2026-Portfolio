@@ -5,8 +5,8 @@ export const site = {
   email: 'chua.johann01@gmail.com',
   currently: 'Marketing & Digital Designer @ Lifeguard Digital Health',
   links: {
-    linkedin: 'https://www.linkedin.com/',
-    github: 'https://github.com/',
+    linkedin: 'https://www.linkedin.com/in/jso-c/',
+    github: 'https://github.com/pochu4',
     resume: '/resume.pdf',
   },
 }

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { getLenis } from '../lib/lenis'
+import BrandBookCarousel from './BrandBookCarousel'
 import Placeholder from './Placeholder'
 import ProjectCard from './ProjectCard'
 
@@ -239,6 +240,10 @@ function SectionBlock({ block, flush }) {
     return <SectionPrototype block={block} />
   }
 
+  if (block.type === 'brandbook') {
+    return <BrandBookCarousel items={block.items} />
+  }
+
   return (
     <div className="space-y-8">
       <SectionText block={block} flush={flush} />
@@ -375,15 +380,11 @@ function SectionImages({ items, count, full }) {
 // blocks keep the reserved column so they stay aligned under that
 // heading's body copy.
 function SectionText({ block, flush }) {
-  const isIntroduction = block.heading === 'Introduction'
-
   const content = (
     <div className="space-y-4 leading-relaxed">
-      {isIntroduction ? (
-        <p className="line-clamp-4">{block.body.join(' ')}</p>
-      ) : (
-        block.body.map((paragraph, i) => <p key={i}>{paragraph}</p>)
-      )}
+      {block.body.map((paragraph, i) => (
+        <p key={i}>{paragraph}</p>
+      ))}
       {block.list && <SectionList list={block.list} style={block.listStyle} />}
       {block.afterList &&
         block.afterList.map((paragraph, i) => <p key={i}>{paragraph}</p>)}

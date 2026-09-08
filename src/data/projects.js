@@ -11,8 +11,8 @@ export const projects = [
     scope: 'Branding',
     software: 'Illustrator, Photoshop, Figma',
     summary:
-      'Visual and verbal identity of Lifeguard Digital Health a purpose-driven company in the public health and safety sector.',
-    heroVideo: '/videos/lifeguard-hero.mp4',
+      'Visual and verbal identity for Lifeguard Digital Health, a purpose-driven company in the public health and safety sector.',
+    heroVideo: '/videos/lifeguard-brandbook-animated.mp4',
     sections: [
       {
         id: 'overview',
@@ -22,11 +22,252 @@ export const projects = [
             type: 'text',
             heading: 'Introduction',
             body: [
-              'Lifeguard Digital Health began in 2017 with a single, urgent focus: using technology to intervene in preventable loss during the opioid crisis. In the years since, our work has grown well beyond that starting point, from crisis response into broader public health and safety, connected care, and the many communities who now rely on us. This refresh exists because our identity needed to grow with it.',
-              'This is not a reinvention. The foundation that has always defined us, a commitment to saving lives, an empathy shaped by real loss, and a belief that technology built with humanity can change outcomes, remains unchanged. What this refresh does is give that foundation a clearer, more cohesive form.',
+              'Lifeguard Digital Health began in 2017 with one main focus: to use technology to intervene in preventable deaths during the opioid crisis. The company was founded by Jeff Hardy after he lost his friend Evan Berezan to a toxic drug overdose, and the original tagline, "Never Use Alone Again," came directly out of that.',
+              'The work has since grown well past that starting point. Lifeguard now operates across public health and safety, connected care, and emergency response, working with governments, healthcare organizations, Indigenous communities, housing providers, and first responders.',
+              "The identity hadn't grown with it. This project was the refresh meant to close that gap, delivered as an external brand book.",
             ],
           },
-          { type: 'images', count: 4 },
+        ],
+      },
+      {
+        id: 'brandbook',
+        heading: 'Brand Book',
+        blocks: [
+          {
+            type: 'brandbook',
+            items: [
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/01-cover.png',
+                alt: 'Lifeguard Digital Health brand book, page 01: Cover',
+                caption: 'Cover',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/02-the-foundation.png',
+                alt: 'Lifeguard Digital Health brand book, page 02: The Foundation',
+                caption: 'The Foundation',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/03-table-of-contents.png',
+                alt: 'Lifeguard Digital Health brand book, page 03: Table of Contents',
+                caption: 'Table of Contents',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/04-foundation.png',
+                alt: 'Lifeguard Digital Health brand book, page 04: Foundation',
+                caption: 'Foundation',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/05-about-us.png',
+                alt: 'Lifeguard Digital Health brand book, page 05: About Us',
+                caption: 'About Us',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/06-purpose-and-mission.png',
+                alt: 'Lifeguard Digital Health brand book, page 06: Purpose and Mission',
+                caption: 'Purpose and Mission',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/07-core-values.png',
+                alt: 'Lifeguard Digital Health brand book, page 07: Core Values',
+                caption: 'Core Values',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/08-impact-within-the-industry.png',
+                alt: 'Lifeguard Digital Health brand book, page 08: Impact within the Industry',
+                caption: 'Impact within the Industry',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/09-taglines.png',
+                alt: 'Lifeguard Digital Health brand book, page 09: Taglines',
+                caption: 'Taglines',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/10-taglines.png',
+                alt: 'Lifeguard Digital Health brand book, page 10: Taglines',
+                caption: 'Taglines',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/11-naming-convention.png',
+                alt: 'Lifeguard Digital Health brand book, page 11: Naming Convention',
+                caption: 'Naming Convention',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/12-terminology.png',
+                alt: 'Lifeguard Digital Health brand book, page 12: Terminology',
+                caption: 'Terminology',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/13-terminology.png',
+                alt: 'Lifeguard Digital Health brand book, page 13: Terminology',
+                caption: 'Terminology',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/14-messaging.png',
+                alt: 'Lifeguard Digital Health brand book, page 14: Messaging',
+                caption: 'Messaging',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/15-safe-language.png',
+                alt: 'Lifeguard Digital Health brand book, page 15: Safe Language',
+                caption: 'Safe Language',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/16-our-messaging-focus.png',
+                alt: 'Lifeguard Digital Health brand book, page 16: Our Messaging Focus',
+                caption: 'Our Messaging Focus',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/17-voice.png',
+                alt: 'Lifeguard Digital Health brand book, page 17: Voice',
+                caption: 'Voice',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/18-design-language.png',
+                alt: 'Lifeguard Digital Health brand book, page 18: Design Language',
+                caption: 'Design Language',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/19-brand-timeline.png',
+                alt: 'Lifeguard Digital Health brand book, page 19: Brand Timeline',
+                caption: 'Brand Timeline',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/20-logo-usage.png',
+                alt: 'Lifeguard Digital Health brand book, page 20: Logo Usage',
+                caption: 'Logo Usage',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/21-logo-usage-vertical.png',
+                alt: 'Lifeguard Digital Health brand book, page 21: Logo Usage - Vertical',
+                caption: 'Logo Usage - Vertical',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/22-logo-usage-submark.png',
+                alt: 'Lifeguard Digital Health brand book, page 22: Logo Usage - Submark',
+                caption: 'Logo Usage - Submark',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/23-logo-contrast-submark.png',
+                alt: 'Lifeguard Digital Health brand book, page 23: Logo Contrast - Submark',
+                caption: 'Logo Contrast - Submark',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/24-logo-usage-wordmark.png',
+                alt: 'Lifeguard Digital Health brand book, page 24: Logo Usage - Wordmark',
+                caption: 'Logo Usage - Wordmark',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/25-unacceptable-use.png',
+                alt: 'Lifeguard Digital Health brand book, page 25: Unacceptable Use',
+                caption: 'Unacceptable Use',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/26-primary-colours.png',
+                alt: 'Lifeguard Digital Health brand book, page 26: Primary Colours',
+                caption: 'Primary Colours',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/27-secondary-colours.png',
+                alt: 'Lifeguard Digital Health brand book, page 27: Secondary Colours',
+                caption: 'Secondary Colours',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/28-primary-typeface.png',
+                alt: 'Lifeguard Digital Health brand book, page 28: Primary Typeface',
+                caption: 'Primary Typeface',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/29-metropolis.png',
+                alt: 'Lifeguard Digital Health brand book, page 29: Metropolis',
+                caption: 'Metropolis',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/30-secondary-typeface.png',
+                alt: 'Lifeguard Digital Health brand book, page 30: Secondary Typeface',
+                caption: 'Secondary Typeface',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/31-dm-sans.png',
+                alt: 'Lifeguard Digital Health brand book, page 31: DM Sans',
+                caption: 'DM Sans',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/32-type-families-in-use.png',
+                alt: 'Lifeguard Digital Health brand book, page 32: Type Families in Use',
+                caption: 'Type Families in Use',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/33-imagery.png',
+                alt: 'Lifeguard Digital Health brand book, page 33: Imagery',
+                caption: 'Imagery',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/34-images.png',
+                alt: 'Lifeguard Digital Health brand book, page 34: Images',
+                caption: 'Images',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/35-patterns.png',
+                alt: 'Lifeguard Digital Health brand book, page 35: Patterns',
+                caption: 'Patterns',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/36-patterns.png',
+                alt: 'Lifeguard Digital Health brand book, page 36: Patterns',
+                caption: 'Patterns',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/37-look-and-feel.png',
+                alt: 'Lifeguard Digital Health brand book, page 37: Look and Feel',
+                caption: 'Look and Feel',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/38-mockups-lifeguard-connect.png',
+                alt: 'Lifeguard Digital Health brand book, page 38: Mockups - Lifeguard Connect™',
+                caption: 'Mockups - Lifeguard Connect™',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/39-mockups-lifeguardportal-landing-page.png',
+                alt: 'Lifeguard Digital Health brand book, page 39: Mockups - LifeguardPortal™ Landing Page',
+                caption: 'Mockups - LifeguardPortal™ Landing Page',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/40-mockups-lifeguardportal.png',
+                alt: 'Lifeguard Digital Health brand book, page 40: Mockups - LifeguardPortal™',
+                caption: 'Mockups - LifeguardPortal™',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/41-mockups-lifeguardlite.png',
+                alt: 'Lifeguard Digital Health brand book, page 41: Mockups - LifeguardLite™',
+                caption: 'Mockups - LifeguardLite™',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/42-mockups-buildstrong.png',
+                alt: 'Lifeguard Digital Health brand book, page 42: Mockups - BuildStrong',
+                caption: 'Mockups - BuildStrong',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/43-mockups-compass.png',
+                alt: 'Lifeguard Digital Health brand book, page 43: Mockups - Compass',
+                caption: 'Mockups - Compass',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/44-mockups-social-media.png',
+                alt: 'Lifeguard Digital Health brand book, page 44: Mockups - Social Media',
+                caption: 'Mockups - Social Media',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/45-mockups-print-materials.png',
+                alt: 'Lifeguard Digital Health brand book, page 45: Mockups - Print Materials',
+                caption: 'Mockups - Print Materials',
+              },
+              {
+                src: '/images/projects/lifeguard-digital-health/brandbook/46-thank-you.png',
+                alt: 'Lifeguard Digital Health brand book, page 46: Thank You',
+                caption: 'Thank You',
+              },
+            ],
+          },
         ],
       },
       {
@@ -37,17 +278,31 @@ export const projects = [
             type: 'text',
             heading: 'The Problem',
             body: [
-              'Placeholder copy. Describe the core problem the client was facing before this project began.',
+              "The brand identity was outdated and inconsistent, and the cause was specific: the original brand was built by a third-party marketing agency in the company's early years. After that relationship ended, several different marketing designers worked on top of it, each interpreting the original work slightly differently and in their own style. Nothing had been documented, so there was no reference to check against, and every new asset drifted a little further from the last.",
+              "The second problem had nothing to do with design. After years in the sector, partners and clients had started describing Lifeguard and its products in their own words. Some of that language was close enough. Some wasn't, and in public health and safety, imprecise language carries real weight.",
+              'The brand book needed to solve both at once: a visual system to reference, and a shared vocabulary for everyone to work from.',
             ],
           },
           {
             type: 'text',
             heading: 'Constraints',
-            body: [
-              'Placeholder copy. Describe the constraints, timeline, budget, technical, or brand, that shaped the work and made it hard.',
+            body: ['Three constraints shaped most of the decisions:'],
+            listStyle: 'bullet',
+            list: [
+              {
+                label: 'Locked colour palette: ',
+                text: 'Leadership was attached to the existing colours, and they were right to be. Colour is usually the first thing people recognize, and Lifeguard had spent years building that recognition with partners and government entities. Changing it would have cost more than it returned, so the palette stayed and everything else worked around it.',
+              },
+              {
+                label: 'Not everyone has the same software: ',
+                text: 'Our marketing team works out of Figma, Canva, and Microsoft. Other teams only use Microsoft. Any typeface added to the system had to be available to all of them, or the guidelines would be ignored by the people who needed them most.',
+              },
+              {
+                label: "Marketing doesn't own every piece of communication: ",
+                text: "Promotional materials come from our team, but not every piece of communication does. The rules had to be usable by people who aren't designers and won't read 46 pages.",
+              },
             ],
           },
-          { type: 'images', count: 4 },
         ],
       },
       {
@@ -58,17 +313,32 @@ export const projects = [
             type: 'text',
             heading: 'Process',
             body: [
-              'Placeholder copy. Walk through the research, strategy, or discovery work that shaped the direction.',
+              "I started with a quick audit of what was worth keeping. Colour was already decided, and the logo variations were solid — they just needed rules written around them. The real gap was typography, which I found after talking with our UX/UI designer and the dev teams.",
+              "The brand had been running on a single typeface, Metropolis. It's a strong geometric sans that holds up well at display sizes, but using one face for headlines, body copy, UI labels, and captions flattens the hierarchy unless you lean on kerning to do the differentiating. I considered that route, but rules for kerning tend to create more inconsistency than they solve, and Figma, Canva, and Microsoft Office don't handle kerning the same way. Writing separate rules per platform would have confused the teams outside marketing more than it helped them.",
+              "So I added DM Sans as a secondary typeface. It's a low-contrast neo-grotesque built for smaller sizes, which complements Metropolis rather than competing with it, and it's free, open, and available on every platform the company uses. Metropolis carries the main headlines; DM Sans handles UI labels, captions, and body copy in some cases.",
+              'For the language problem, I built the messaging and terminology section with our copywriter, working out a list of approved and banned terms everyone could reference.',
             ],
           },
           {
             type: 'text',
             heading: 'Key Decisions',
-            body: [
-              'Placeholder copy. Call out the pivotal decisions along the way and why they were made.',
+            body: ['A few decisions carried the rest of the system:'],
+            listStyle: 'bullet',
+            list: [
+              {
+                label: 'Kept the palette and logo, fixed typography instead: ',
+                text: "Colour and the logo variations were already working. Spending effort there would have cost trust for no real gain, so I put the design work into the gap that actually existed.",
+              },
+              {
+                label: 'DM Sans over kerning rules: ',
+                text: 'Chose a second typeface for hierarchy over a kerning system, because it worked identically across Figma, Canva, and Microsoft Office, and a kerning rulebook would not have.',
+              },
+              {
+                label: 'Terminology built with the copywriter, not just design: ',
+                text: 'The approved-language list came out of a joint pass with our copywriter, since the problem was how people described the product, not how it looked.',
+              },
             ],
           },
-          { type: 'images', count: 2 },
         ],
       },
       {
@@ -79,15 +349,14 @@ export const projects = [
             type: 'text',
             heading: 'Visual Identity',
             body: [
-              'Placeholder copy. Describe the identity system, color, type, imagery, and the reasoning behind it.',
+              'Overall, the visual direction is darker than the previous work. Plain white backgrounds are balanced all throughout with heavy image overlays and gradient panels, which gives the book contrast throughout.',
             ],
           },
-          { type: 'images', count: 4 },
           {
             type: 'text',
             heading: 'Applications',
             body: [
-              'Placeholder copy. Show where and how the system was applied across touchpoints.',
+              'Still in progress! Most of the rollout so far has been on internal communications and social media, which is where inconsistency was most visible day to day. The website redesign is the next piece being worked on and is the first application where the full system, and type hierarchy gets tested at a scale.',
             ],
           },
         ],
@@ -99,7 +368,8 @@ export const projects = [
           {
             type: 'text',
             body: [
-              'Placeholder copy. What you learned and what you would revisit.',
+              "This was the first large project I owned at the company and it taught me more than anything else I've worked on here. The most useful lesson wasn't something visual. It was that a guideline that nobody can follow is the same as having no guideline at all, which is why software availability ended up driving the main type decision.",
+              "In the future, I would love to add an internal extension. This brand book is built for our clients and partners, and it's right for that audience. But the company is small enough that internal communication still changes shape depending on who's writing it, and that's the gap this book doesn't help to close. An internal guide with templates for emails, presentations, and plain-language would do more for daily consistency.",
             ],
           },
         ],
