@@ -5,12 +5,30 @@ import { AnimatePresence, motion } from 'framer-motion'
 // arrows to step through the book, and a smaller filmstrip of every page
 // underneath for jumping straight to one. Clicking the big image (or
 // pressing Escape/arrows once inside) opens the full-screen modal below.
+const slideVariants = {
+  enter: (direction) => ({
+    x: direction === 0 ? 0 : direction > 0 ? 24 : -24,
+    opacity: 0,
+  }),
+  center: { x: 0, opacity: 1 },
+  exit: (direction) => ({
+    x: direction === 0 ? 0 : direction > 0 ? -24 : 24,
+    opacity: 0,
+  }),
+}
+
 export default function BrandBookCarousel({ items }) {
   const [mainIndex, setMainIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
   const [openIndex, setOpenIndex] = useState(null)
   const [dragging, setDragging] = useState(false)
   const total = items.length
   const current = items[mainIndex]
+
+  function goToIndex(i) {
+    setDirection(i > mainIndex ? 1 : i < mainIndex ? -1 : 0)
+    setMainIndex(i)
+  }
 
   // Click-and-drag horizontal scrolling for the filmstrip (mouse only —
   // touch already scrolls natively via overflow-x). `moved` past a small
@@ -49,17 +67,26 @@ export default function BrandBookCarousel({ items }) {
   return (
     <>
       <div className="space-y-4">
-        <div className="border-line group relative overflow-hidden rounded-sm border">
+        <div className="border-line group relative aspect-video w-full overflow-hidden rounded-sm border">
           <button
             type="button"
             onClick={() => setOpenIndex(mainIndex)}
-            className="block w-full cursor-zoom-in"
+            className="block h-full w-full cursor-zoom-in"
           >
-            <img
-              src={current.src}
-              alt={current.alt}
-              className="aspect-video w-full object-contain"
-            />
+            <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+              <motion.img
+                key={mainIndex}
+                src={current.src}
+                alt={current.alt}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                className="h-full w-full object-contain"
+              />
+            </AnimatePresence>
           </button>
           <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-4 pt-10 pb-3 text-sm text-white">
             {mainIndex + 1} / {total} — {current.caption}
@@ -68,7 +95,7 @@ export default function BrandBookCarousel({ items }) {
           {mainIndex > 0 && (
             <button
               type="button"
-              onClick={() => setMainIndex((i) => i - 1)}
+              onClick={() => goToIndex(mainIndex - 1)}
               aria-label="Previous page"
               className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full bg-white/70 p-2.5 text-ink backdrop-blur-md transition-colors hover:bg-white/90"
             >
@@ -78,7 +105,7 @@ export default function BrandBookCarousel({ items }) {
           {mainIndex < total - 1 && (
             <button
               type="button"
-              onClick={() => setMainIndex((i) => i + 1)}
+              onClick={() => goToIndex(mainIndex + 1)}
               aria-label="Next page"
               className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full bg-white/70 p-2.5 text-ink backdrop-blur-md transition-colors hover:bg-white/90"
             >
@@ -104,7 +131,7 @@ export default function BrandBookCarousel({ items }) {
               draggable={false}
               onClick={() => {
                 if (drag.current.moved) return
-                setMainIndex(i)
+                goToIndex(i)
               }}
               className={`relative h-16 shrink-0 overflow-hidden rounded-sm border sm:h-20 ${
                 i === mainIndex
