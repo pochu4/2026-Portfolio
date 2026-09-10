@@ -142,7 +142,7 @@ export default function Home() {
             >
               <img
                 src="/images/home/intro.jpg"
-                alt="Johann taking a photo under lanterns in Macau"
+                alt="Johann walking down a lantern-lit courtyard between brick buildings"
                 className="h-full w-full object-cover"
               />
             </Parallax>
